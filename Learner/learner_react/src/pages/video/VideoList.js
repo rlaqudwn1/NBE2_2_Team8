@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
+import { jwtDecode } from "jwt-decode";
 
 const Video_Url = "http://localhost:8080/video";
 const Course_Url = "http://localhost:8080/course";
@@ -11,23 +12,41 @@ const VideoList = () => {
     const [videos, setVideos] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [role, setRole] = useState(null);
 
     useEffect(() => {
-        const fetchVideos = async () => {
-            setLoading(true);
-            try {
-                const response = await axios.get(`${Course_Url}/video/${courseId}`);
-                setVideos(response.data);
-            } catch (error) {
-                console.error("비디오 목록 가져오는 중 오류 발생:", error);
-                setError("비디오 목록을 가져오는 데 실패했습니다.");
-            } finally {
-                setLoading(false);
-            }
-        };
-
+        checkUserRole();
         fetchVideos();
     }, [courseId]);
+
+    const checkUserRole = () => {
+        try {
+            const token = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('Authorization='))
+                ?.split('=')[1];
+
+            if (token) {
+                const decodedToken = jwtDecode(token);
+                setRole(decodedToken.role); // 사용자 역할 설정
+            }
+        } catch (error) {
+            console.error("토큰 확인 중 오류 발생:", error);
+        }
+    };
+
+    const fetchVideos = async () => {
+        setLoading(true);
+        try {
+            const response = await axios.get(`${Course_Url}/video/${courseId}`);
+            setVideos(response.data);
+        } catch (error) {
+            console.error("비디오 목록 가져오는 중 오류 발생:", error);
+            setError("비디오 목록을 가져오는 데 실패했습니다.");
+        } finally {
+            setLoading(false);
+        }
+    };
 
     const extractVideoId = (url) => {
         const regex = /[?&]v=([^&#]*)/;
@@ -53,12 +72,14 @@ const VideoList = () => {
     return (
         <VideoListContainer>
             <Header>비디오 목록</Header>
-            <Link to={`/video/create/${courseId}`}>
-                <StyledButton primary>비디오 추가</StyledButton>
-            </Link>
+            {role === "ROLE_INSTRUCTOR" || role === "ROLE_ADMIN" ? (
+                <Link to={`/video/create/${courseId}`}>
+                    <StyledButton primary>비디오 추가</StyledButton>
+                </Link>
+            ) : null}
             {videos.length > 0 ? (
                 videos.map(video => {
-                    const youtubeId = extractVideoId(video.url); // URL에서 유튜브 ID 추출
+                    const youtubeId = extractVideoId(video.url);
                     return (
                         <VideoItem key={video.video_Id}>
                             <VideoDetails>
@@ -66,13 +87,17 @@ const VideoList = () => {
                                 <p>비디오 제목: <strong>{video.title}</strong></p>
                             </VideoDetails>
                             <ButtonContainer>
-                                <Link to={`/video/update/${video.video_Id}`}>
-                                    <StyledButton secondary>수정</StyledButton>
-                                </Link>
+                                {role === "ROLE_INSTRUCTOR" || role === "ROLE_ADMIN" ? (
+                                    <Link to={`/video/update/${video.video_Id}`}>
+                                        <StyledButton secondary>수정</StyledButton>
+                                    </Link>
+                                ) : null}
                                 <Link to={`/video/${video.video_Id}/play`} state={{ videoEntityId: video.video_Id, youtubeId: youtubeId }}>
-                                    <StyledButton secondary>재생</StyledButton>
+                                    <StyledButton play>재생</StyledButton>
                                 </Link>
-                                <StyledButton onClick={() => handleDeleteClick(video.video_Id)} secondary>삭제</StyledButton>
+                                {role === "ROLE_INSTRUCTOR" || role === "ROLE_ADMIN" ? (
+                                    <StyledButton onClick={() => handleDeleteClick(video.video_Id)} secondary>삭제</StyledButton>
+                                ) : null}
                             </ButtonContainer>
                         </VideoItem>
                     );
@@ -134,7 +159,10 @@ const ButtonContainer = styled.div`
 
 const StyledButton = styled.button`
     padding: 0.5rem 1rem;
-    background-color: ${props => (props.primary ? "#007bff" : props.secondary ? "#dc3545" : "#007bff")};
+    background-color: ${props =>
+            props.primary ? "#007bff" :
+                    props.secondary ? "#dc3545" :
+                            props.play ? "#28a745" : "#007bff"};
     color: white;
     border: none;
     border-radius: 4px;
@@ -142,7 +170,10 @@ const StyledButton = styled.button`
     transition: background-color 0.3s;
 
     &:hover {
-        background-color: ${props => (props.primary ? "#0056b3" : props.secondary ? "#c82333" : "#0056b3")};
+        background-color: ${props =>
+                props.primary ? "#0056b3" :
+                        props.secondary ? "#c82333" :
+                                props.play ? "#218838" : "#0056b3"};
     }
 `;
 
