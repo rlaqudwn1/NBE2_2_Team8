@@ -154,13 +154,13 @@ public class MemberRestController {
         return ResponseEntity.ok(memberService.getInstructorInfo(nickname));
     }
 
-    //회원 목록 조회
-    @GetMapping("/list")
-    public ResponseEntity <List<MemberDTO>> listMembers() {
-        log.info("--- myPageRead()");
-
-        return ResponseEntity.ok(memberService.getAllMembers());
-    }
+//    //회원 목록 조회
+//    @GetMapping("/list")
+//    public ResponseEntity <List<MemberDTO>> listMembers() {
+//        log.info("--- myPageRead()");
+//
+//        return ResponseEntity.ok(memberService.getAllMembers());
+//    }
 
     @GetMapping("/nickname")
     @Operation(summary = "이메일로 닉네임 조회", description = "이메일로 닉네임을 조회합니다.")

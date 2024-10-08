@@ -1,11 +1,5 @@
 package edu.example.learner.courseabout.video.controller;
 
-import edu.example.learner.courseabout.course.dto.CourseDTO;
-import edu.example.learner.courseabout.course.entity.Course;
-import edu.example.learner.courseabout.course.repository.CourseRepository;
-import edu.example.learner.courseabout.course.service.CourseService;
-import edu.example.learner.courseabout.exception.CourseException;
-import edu.example.learner.courseabout.exception.VideoException;
 import edu.example.learner.courseabout.video.dto.VideoDTO;
 import edu.example.learner.courseabout.video.entity.Video;
 import edu.example.learner.courseabout.video.repository.VideoRepository;
@@ -29,7 +23,6 @@ import java.util.Optional;
 public class VideoController {
     private final VideoService videoService;
     private final VideoRepository videoRepository;
-    private final CourseRepository courseRepository;
 
     private double totalDuration = 0; // 전체 동영상 시간
     private double currentTime = 0; // 현재 재생 시간
@@ -38,9 +31,10 @@ public class VideoController {
     @Operation(summary = "재생 시간 저장", description = "비디오 ID와 재생 시간을 저장합니다.")
     public String savePlayTime(@Parameter(description = "재생 시간 요청 데이터") @RequestBody PlayTimeRequest playTimeRequest) {
         Long videoId = playTimeRequest.getVideoId();
-        VideoDTO videoById = videoService.getVideoById(videoId).orElseThrow(VideoException.VIDEO_NOT_FOUND::get);
-        Course course = courseRepository.findById(videoById.getCourse_Id()).orElseThrow(CourseException.COURSE_NOT_FOUND::get);
-        Video video = videoById.toEntity(course);
+
+        Optional<VideoDTO> videoById = videoService.getVideoById(videoId);
+        if (videoById.isPresent()) {
+            Video video = videoById.get().toEntity();
 
             if (playTimeRequest.getTotalDuration() > 0) {
                 video.setTotalVideoDuration((long) playTimeRequest.getTotalDuration()); // 전체 동영상 시간 업데이트
@@ -52,6 +46,9 @@ public class VideoController {
 
             videoRepository.save(video); // 변경 사항 저장
             return "시간 저장 완료";
+        } else {
+            return "비디오를 찾을 수 없습니다.";
+        }
     }
 
     @GetMapping("/videoInfo")

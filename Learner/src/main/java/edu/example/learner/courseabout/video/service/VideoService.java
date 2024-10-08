@@ -1,7 +1,5 @@
 package edu.example.learner.courseabout.video.service;
 
-import edu.example.learner.courseabout.course.entity.Course;
-import edu.example.learner.courseabout.course.repository.CourseRepository;
 import edu.example.learner.courseabout.video.dto.VideoDTO;
 import edu.example.learner.courseabout.video.entity.Video;
 import edu.example.learner.courseabout.video.repository.VideoRepository;
@@ -17,7 +15,6 @@ import java.util.Optional;
 public class VideoService {
 
     private final VideoRepository videoRepository;
-    private final CourseRepository courseRepository;
 
     // 모든 비디오를 가져옵니다.
     public List<VideoDTO> getAllVideos() {
@@ -31,14 +28,11 @@ public class VideoService {
     }
 
     // 비디오를 추가합니다.
-    @Transactional
+    @Transactional // 트랜잭션 관리
     public VideoDTO addVideo(VideoDTO videoDTO) {
-        Course course = courseRepository.findById(videoDTO.getCourse_Id())
-                .orElseThrow(() -> new RuntimeException("Course not found"));
-
-        Video video = videoDTO.toEntity(course); // Course 객체를 전달
-        videoRepository.save(video);
-        return new VideoDTO(video);
+        Video video = videoDTO.toEntity();
+        Video savedVideo = videoRepository.save(video);
+        return new VideoDTO(savedVideo);
     }
 
     // 비디오 정보를 업데이트합니다.
