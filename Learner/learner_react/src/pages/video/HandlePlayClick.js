@@ -9,7 +9,7 @@ const extractVideoId = (url) => {
 export const handlePlayClick = async (courseId, video, navigate, setError) => {
     try {
         const memberId = localStorage.getItem('memberId');
-        const response = await axios.get(`http://localhost:8080/course/${courseId}/purchase?memberId=${memberId}`);
+        const response = await axios.get(`http://localhost:8080/course/${courseId}/purchase?memberId=${memberId}`,{ withCredentials: true });
 
         if (response.data) {
             const youtubeId = extractVideoId(video.url);
