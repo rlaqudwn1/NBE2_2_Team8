@@ -82,7 +82,7 @@ const EditProfile = () => {
         e.preventDefault();
 
         if (isOAuthUser) {
-            setIsPasswordVerified(true); // 자동으로 인증 성공 처리
+            setIsPasswordVerified(true); // OAuth 사용자는 자동으로 인증 성공 처리
         } else if (!isPasswordVerified) {
             setErrorMessage("먼저 비밀번호를 인증하세요.");
             return;
@@ -98,17 +98,20 @@ const EditProfile = () => {
                 },
                 body: JSON.stringify({
                     nickname: userInfo.nickname,
-                    email: userInfo.email,
+                    email: isOAuthUser ? userInfo.email : userInfo.email,  // OAuth 사용자도 이메일 수정 가능하게
                     introduction: userInfo.introduction,
-                    password: isOAuthUser ? undefined : userInfo.password,
+                    password: isPasswordVerified ? userInfo.password : undefined, // 비밀번호 인증 후에만 새로운 비밀번호 전송
                 }),
                 credentials: "include",
             });
 
             if (response.ok) {
-                setSuccessMessage("회원 정보가 성공적으로 수정되었습니다.");
+                setSuccessMessage("회원 정보 수정에 성공하였습니다.");
                 setErrorMessage("");
-                navigate(`/내정보`);
+
+                // 성공 알림창 표시
+                alert("회원 정보 수정에 성공하였습니다.");
+                window.location.href = "http://localhost:3000/내정보";
             } else {
                 const errorBody = await response.text();
                 setErrorMessage(`수정 실패: ${errorBody || "알 수 없는 오류 발생"}`);
@@ -121,6 +124,7 @@ const EditProfile = () => {
         }
     };
 
+
     return (
         <Container>
             <Title>회원정보 수정</Title>
@@ -131,7 +135,13 @@ const EditProfile = () => {
                 </Label>
                 <Label>
                     이메일:
-                    <Input type="email" name="email" value={userInfo.email} readOnly />
+                    <Input
+                        type="email"
+                        name="email"
+                        value={userInfo.email}
+                        onChange={handleChange}  // OAuth 사용자가 아니면 이메일 수정 가능
+                        readOnly={isOAuthUser}  // OAuth 사용자면 이메일 수정 불가능
+                    />
                 </Label>
                 <Label>
                     자기소개:
@@ -154,7 +164,6 @@ const EditProfile = () => {
                             <Input
                                 type="text"
                                 name="password"
-                                value={""}
                                 onChange={handleChange}
                                 placeholder="변경할 비밀번호를 입력하세요."
                             />
@@ -170,6 +179,7 @@ const EditProfile = () => {
 };
 
 export default EditProfile;
+
 
 // 스타일 컴포넌트들
 const Container = styled.div`

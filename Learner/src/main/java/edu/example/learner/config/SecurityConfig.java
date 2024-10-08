@@ -66,7 +66,7 @@ public class SecurityConfig{
                         //로그인 권한 설정
                         .requestMatchers("/login").permitAll()
                         .requestMatchers("/join/*").permitAll()                                                                //로그인 및 회원가입 모두 허용
-                        .requestMatchers("/find/*").permitAll()                                                                //비밀번호 찾기 및 아이디 찾기 모두 허용
+                        .requestMatchers("/members/find/*").permitAll()                                                                //비밀번호 찾기 및 아이디 찾기 모두 허용
                         //강의 문의 권한 설정
                         .requestMatchers(HttpMethod.GET, "/course-inquiry/**").permitAll()                                      // GET 요청 course 모두 허용
                         .requestMatchers(HttpMethod.POST, "/course-inquiry/**").hasAnyRole("INSTRUCTOR","ADMIN")          // POST 요청 course 권한 설정
