@@ -24,7 +24,7 @@ const CourseDetail = () => {
 
     useEffect(() => {
         // courseId를 이용해서 해당 강의 정보를 가져옴
-        axios.get(`http://localhost:8080/course/${courseId}`)
+        axios.get(`http://localhost:8080/course/${courseId}`,{ withCredentials: true })
             .then((response) => {
                 setCourse(response.data); // 강의 데이터 설정
             })

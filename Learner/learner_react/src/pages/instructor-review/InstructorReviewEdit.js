@@ -22,7 +22,7 @@ const InstructorReviewEdit = () => {
         }
 
         // 리뷰 데이터 가져오기 (reviewId, nickname으로 리뷰 조회)
-        fetch(`http://localhost:8080/members/instructor/${nickname}/reviews/${reviewId}`, {
+        fetch(`http://localhost:8080/members/instructor/${nickname}/reviews/${reviewId}`,{ withCredentials: true }, {
             credentials: 'include',
         })
             .then(res => res.json())
@@ -68,7 +68,7 @@ const InstructorReviewEdit = () => {
             },
             body: JSON.stringify(reviewData),
             credentials: 'include',
-        })
+        },{ withCredentials: true })
             .then((res) => {
                 if (res.ok) {
                     alert("리뷰가 성공적으로 수정되었습니다.");

@@ -14,7 +14,7 @@ const OrderUpdate = () => {
     useEffect(() => {
         const fetchOrder = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/order/${orderId}`);
+                const response = await axios.get(`http://localhost:8080/order/${orderId}`,{ withCredentials: true });
                 setOrder(response.data);
             } catch (error) {
                 console.error("주문 정보를 가져오는 중 오류 발생:", error);
@@ -24,7 +24,7 @@ const OrderUpdate = () => {
 
         const fetchCourses = async () => {
             try {
-                const response = await axios.get("http://localhost:8080/course/list");
+                const response = await axios.get("http://localhost:8080/course/list",{ withCredentials: true });
                 setCourses(response.data);
             } catch (error) {
                 console.error("강의 목록을 가져오는 중 오류 발생:", error);
@@ -85,7 +85,7 @@ const OrderUpdate = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.put(`http://localhost:8080/order/${orderId}/`, order);
+            const response = await axios.put(`http://localhost:8080/order/${orderId}/`, order,{ withCredentials: true } );
             console.log("주문 업데이트 완료:", response.data);
             navigate(`/orders/${orderId}`);
         } catch (error) {

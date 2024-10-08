@@ -32,7 +32,7 @@ const Courses = () => {
         setRole(storedRole);
 
         // 강의 목록 가져오기
-        axios.get("http://localhost:8080/course/list")
+        axios.get("http://localhost:8080/course/list",{ withCredentials: true })
             .then((response) => {
                 setCourses(response.data);
                 setFilteredCourses(response.data); // 초기에는 필터링된 목록에 전체 강의를 저장

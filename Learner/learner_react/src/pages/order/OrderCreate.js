@@ -47,7 +47,7 @@ const OrderCreate = () => {
             const response = await axios.post(`http://localhost:8080/order/${memberId}`, {
                 orderItemDTOList: orderItems,
                 memberId: memberId,
-            });
+            },{ withCredentials: true });
             setError("주문이 성공적으로 생성되었습니다!");
 
             setTimeout(() => {

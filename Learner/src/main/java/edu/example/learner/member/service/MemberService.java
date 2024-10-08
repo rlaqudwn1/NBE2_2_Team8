@@ -182,8 +182,7 @@ public class MemberService {
         }
 
         // JWT 생성 및 쿠키 반환
-        String accessToken = jwtUtil.createToken(Map.of("mid", member.getEmail(), "role", ("ROLE_" + member.getRole())), 30);
-        Cookie cookie = new Cookie("Authorization", accessToken);
+        String accessToken = jwtUtil.createToken(Map.of("mid", member.getEmail(), "role", member.getRole()), 30);        Cookie cookie = new Cookie("Authorization", accessToken);
         cookie.setMaxAge(60 * 60 * 60); // 60시간
         cookie.setPath("/"); // 전체 경로에서 접근 가능
         cookie.setHttpOnly(false); // JavaScript에서 접근 가능

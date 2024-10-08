@@ -21,7 +21,7 @@ const Orders = () => {
                 return;
             }
             try {
-                const response = await axios.get(`${Order_Url}/list/${memberId}`);
+                const response = await axios.get(`${Order_Url}/list/${memberId}`,{ withCredentials: true });
                 setOrders(response.data);
             } catch (error) {
                 console.error("주문 가져오는 중 오류 발생:", error);
@@ -47,7 +47,7 @@ const Orders = () => {
         const memberId = localStorage.getItem("memberId");
         console.log(orderId);
         try {
-            const response = await axios.post(`${Order_Url}/purchase/${orderId}`, { orderId,memberId });
+            const response = await axios.post(`${Order_Url}/purchase/${orderId}`, { orderId,memberId },{ withCredentials: true });
             alert("결제가 완료되었습니다. 주문 ID: " + response.data.orderId);
         } catch (error) {
             console.error("결제 중 오류 발생:", error);

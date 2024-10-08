@@ -14,7 +14,7 @@ const CourseUpdate = () => {
     useEffect(() => {
         const fetchCourse = async () => {
             try {
-                const response = await axios.get(`${Course_Url}/${courseId}`);
+                const response = await axios.get(`${Course_Url}/${courseId}`,{ withCredentials: true });
                 setCourseName(response.data.courseName);
             } catch (err) {
                 setError("강좌를 불러오는 데 실패했습니다.");

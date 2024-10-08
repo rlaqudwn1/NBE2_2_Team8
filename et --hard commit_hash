@@ -1,0 +1,1869 @@
+[33mcommit 842b96ea2125614e948e1756af91e7a6d2ea8312[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mPay[m[33m)[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Mon Oct 7 15:36:37 2024 +0900
+
+    -Feature Swagger 처리와 Order 구매 처리
+
+[33mcommit de88e074cef9e9c604b1daf6f7141b05419c1544[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Oct 7 14:12:36 2024 +0900
+
+    Fix Data spl 수정
+
+[33mcommit d7dc70c71b9cb61a6e591e1d2f05ae195448ddc5[m[33m ([m[1;31mupstream/Pay[m[33m)[m
+Merge: 19908814 5b395aed
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Oct 7 14:11:44 2024 +0900
+
+    Merge pull request #84 from prgrms-be-devcourse/data_sql
+    
+    Data sql
+
+[33mcommit 5b395aeda153fc40253fa36cf953dab245cee79e[m
+Merge: b5b395f2 19908814
+Author: chanspar <qhrn12345@naver.com>
+Date:   Mon Oct 7 14:10:47 2024 +0900
+
+    Merge branch 'main' into data_sql
+
+[33mcommit b5b395f234f0b1a7dd768a293e9c4b7bbfb3d03a[m
+Author: chanspar <qhrn12345@naver.com>
+Date:   Mon Oct 7 14:10:13 2024 +0900
+
+    Feature: sql문초기데이터추가
+
+[33mcommit 19908814f03e607f6087d22dab8176399bf84411[m
+Merge: 07838c38 bc6ac1be
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Oct 7 14:07:59 2024 +0900
+
+    Merge pull request #83 from prgrms-be-devcourse/Swagger
+    
+    Swagger
+
+[33mcommit bc6ac1bee194acf9c8c7a4f4eed8d4e1ea42f57f[m[33m ([m[1;32mSwagger[m[33m)[m
+Merge: 69f207d4 07838c38
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Mon Oct 7 14:06:53 2024 +0900
+
+    충돌 해결
+
+[33mcommit 69f207d436b22d7b4f147eee05c406ca539fa21b[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Mon Oct 7 14:05:26 2024 +0900
+
+    충돌 해결
+
+[33mcommit 07838c38da5e9bea641d37a4f636f366a697a9fe[m
+Merge: e5d88d07 1f0979df
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Oct 7 12:43:26 2024 +0900
+
+    Merge pull request #82 from prgrms-be-devcourse/my-courseinfo
+    
+    내 수강 정보 보기 추가
+
+[33mcommit 1f0979df4638a4ec3188d33ebc5bf73042283a3f[m
+Merge: 450195c4 e5d88d07
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Oct 7 12:42:58 2024 +0900
+
+    Merge pull request #81 from prgrms-be-devcourse/main
+    
+    메인 코드 병합
+
+[33mcommit 450195c4ba08d8689bf381941062bf451a20a1dd[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Oct 7 12:42:24 2024 +0900
+
+    Feature 내 수강 정보보기 완성
+
+[33mcommit e5d88d073173548b57efb30dd7de550b756ef70e[m
+Merge: 32067ba4 9b12acdd
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Oct 7 12:11:09 2024 +0900
+
+    Merge pull request #80 from prgrms-be-devcourse/course
+    
+    리뷰 프론트 기능 추가
+
+[33mcommit 9b12acdd65c01df5336c7a00e27cfe16e180902a[m
+Merge: 4bb91f02 dcaf37d9
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Mon Oct 7 12:09:53 2024 +0900
+
+    Merge pull request #79 from prgrms-be-devcourse/review
+    
+    Review 프론트페이지 기능 추가
+
+[33mcommit dcaf37d9a0e0028ede05184a911fd7f608b06ee0[m
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Mon Oct 7 12:07:04 2024 +0900
+
+    Feature Review 작성자 추가 및 생성, 수정, 삭제 권한
+
+[33mcommit 758f55b91066f08f902c46b32922b709ef88b33b[m
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Mon Oct 7 12:06:14 2024 +0900
+
+    Update ReviewException 추가
+
+[33mcommit 1d2d1640c32cd5ae7e404f063beb98e3c0399ac3[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Mon Oct 7 11:58:30 2024 +0900
+
+    -Feature CourseDetail.js 수정 커리큘럼 활성화
+
+[33mcommit 16a1d6bc0b3408716d5f690a48b2aa193e6e2b80[m
+Merge: 8ed081c5 32067ba4
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Oct 7 11:35:59 2024 +0900
+
+    Merge pull request #78 from prgrms-be-devcourse/main
+    
+    Main code clone
+
+[33mcommit 32067ba468acceedd817bf11bd78faa93ad2aa58[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Oct 7 11:32:12 2024 +0900
+
+    Fix 만지지마시오
+
+[33mcommit 4a73e85f7e84d509c53aa397e2508aac43ae9af2[m
+Merge: 693c090d 075d7811
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Oct 7 10:49:19 2024 +0900
+
+    Merge pull request #77 from prgrms-be-devcourse/front
+    
+    Video CRUD
+
+[33mcommit 075d7811c435c5f3d1696bcbd2426e605f00f511[m
+Merge: 73fb802d 693c090d
+Author: rlaqudwn1 <162764129+rlaqudwn1@users.noreply.github.com>
+Date:   Mon Oct 7 10:49:12 2024 +0900
+
+    Merge branch 'main' into front
+
+[33mcommit 693c090d353c67266785341fb68b24b85181a177[m
+Merge: 111acca6 8ed081c5
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Oct 7 10:41:58 2024 +0900
+
+    Merge pull request #76 from prgrms-be-devcourse/my-courseinfo
+    
+    Update 내 수강 정보 기능 추가
+
+[33mcommit 8ed081c5c00b25621db9ac6ea075f184f367527c[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Oct 7 10:41:18 2024 +0900
+
+    Update 내 수강 정보 기능 추가
+
+[33mcommit 73fb802d1deca9733cf7500a6cefe66315f1a321[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Mon Oct 7 10:40:38 2024 +0900
+
+    Video CRUD
+    
+    asd
+
+[33mcommit 111acca60f93423115425a91f67c06cc1e4ec9b8[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Oct 7 09:47:37 2024 +0900
+
+    Update 내 수강 정보 추가
+
+[33mcommit 2e8178959e5756db2f56107e7678e183fd7fe216[m
+Merge: 89256a5b 5c104b8d
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Oct 7 09:30:51 2024 +0900
+
+    Merge pull request #75 from prgrms-be-devcourse/react_news
+    
+    React news
+
+[33mcommit 5c104b8d76b87729eefd6d4bbbff2f4f804e88ea[m
+Author: chanspar <qhrn12345@naver.com>
+Date:   Mon Oct 7 09:26:12 2024 +0900
+
+    Feature: 아이디 비밀번호찾기 기능 완성
+
+[33mcommit f3dc66a1fcad9b89b28c5de84e41a86b07499035[m
+Merge: da4c0a35 1283798b
+Author: chanspar <qhrn12345@naver.com>
+Date:   Fri Oct 4 19:05:29 2024 +0900
+
+    Merge branch 'main' into react_news
+
+[33mcommit 89256a5bf212268098d497d2cd19e5968006efec[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Fri Oct 4 18:58:51 2024 +0900
+
+    Fix 강사 이미지 보이도록 수정
+
+[33mcommit 68e6f4d9f41d8d80ed0f3af0e42979d910fda4d7[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Fri Oct 4 18:48:04 2024 +0900
+
+    Fix 오류 수정
+
+[33mcommit f62611cba300d1ce13798f7c543db86d97887b0a[m
+Merge: 1283798b e68b5a79
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Fri Oct 4 18:40:45 2024 +0900
+
+    Merge pull request #74 from prgrms-be-devcourse/Login
+    
+    Update Member CRUD 통합 프론트엔드 호환 완료
+
+[33mcommit e68b5a7965278c00c33190a5c315a8c242013f50[m[33m ([m[1;32mLogin[m[33m)[m
+Merge: ce816a63 1283798b
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Fri Oct 4 18:40:37 2024 +0900
+
+    Merge branch 'main' into Login
+
+[33mcommit ce816a63f2486b9602be73b882f6a9f90e862784[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Fri Oct 4 18:39:02 2024 +0900
+
+    Update Member CRUD 통합 프론트엔드 호환 완료
+
+[33mcommit da4c0a35ab7f8e2815ea9e950c63b90e8df6aa54[m
+Author: chanspar <qhrn12345@naver.com>
+Date:   Fri Oct 4 17:43:58 2024 +0900
+
+    Feature: 아이디 찾기 진행중
+
+[33mcommit 1283798bfbc7cae68f0c7921da90d1382915a214[m
+Merge: 52621199 64f917f1
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Fri Oct 4 17:43:51 2024 +0900
+
+    Merge pull request #73 from prgrms-be-devcourse/front
+    
+    장바구니 프론트 CRUD
+
+[33mcommit 64f917f1099665666aedc548d0cb6de6bab0add9[m
+Merge: 92b0cb8c 52621199
+Author: rlaqudwn1 <162764129+rlaqudwn1@users.noreply.github.com>
+Date:   Fri Oct 4 17:43:24 2024 +0900
+
+    Merge branch 'main' into front
+
+[33mcommit 5262119968237e5843523f89bb9fca7774825356[m
+Merge: aed75932 4bb91f02
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Fri Oct 4 17:42:04 2024 +0900
+
+    Merge pull request #70 from prgrms-be-devcourse/course
+    
+    강사페이지 생성 & 리뷰 생성
+
+[33mcommit 92b0cb8ce5432e64c45a9b625affa369b7252c8f[m
+Merge: dc2b9372 102a7906
+Author: rlaqudwn1 <162764129+rlaqudwn1@users.noreply.github.com>
+Date:   Fri Oct 4 17:41:50 2024 +0900
+
+    Merge pull request #72
+    
+    frontOrder
+
+[33mcommit 102a7906cf43f7fa76a786a2993bddf13d40c5ed[m[33m ([m[1;31morigin/frontOrder[m[33m, [m[1;32mfrontOrder[m[33m)[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Fri Oct 4 17:41:28 2024 +0900
+
+    -Feature Order 컨트롤러 수정 장바구니 페이지 CRUD 완성
+
+[33mcommit 4bb91f020ac71fb8fc97e553e27896dd6423b511[m
+Merge: 1465147d b597b3e0
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Fri Oct 4 17:41:27 2024 +0900
+
+    Merge pull request #71 from prgrms-be-devcourse/review
+    
+    Update MemberService 오류수정
+
+[33mcommit b597b3e0d40583e9f0150452b0338b765c569d89[m
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Fri Oct 4 17:40:49 2024 +0900
+
+    Update MemberService 오류수정
+
+[33mcommit 1465147ddb3e78f772139de05b2724b74cd13e1e[m
+Merge: 750d0403 72ef0685
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Fri Oct 4 17:36:59 2024 +0900
+
+    Merge pull request #69 from prgrms-be-devcourse/review
+    
+    강사페이지 생성 & 리뷰 생성
+
+[33mcommit 72ef068563873540f48f055a7892131ab2d51d69[m
+Merge: bbf76971 aed75932
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Fri Oct 4 17:35:35 2024 +0900
+
+    Merge branch 'refs/heads/main' into review
+
+[33mcommit bbf76971da307172aea4cb26fb99b65eb296596a[m
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Fri Oct 4 17:35:21 2024 +0900
+
+    Feature Instructor 페이지 생성
+    Feature Review 페이지 생성
+
+[33mcommit aed75932b969869a207010fd050fe29e2ee6b314[m
+Merge: e064bde5 3795d0ec
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Fri Oct 4 16:43:21 2024 +0900
+
+    Merge pull request #68 from prgrms-be-devcourse/Login
+    
+    Login
+
+[33mcommit 3795d0ec45e7f1c40aca71a6597bcc18158efdde[m
+Merge: 1968ff09 e064bde5
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Fri Oct 4 16:43:14 2024 +0900
+
+    Merge branch 'main' into Login
+
+[33mcommit 1968ff096347892559d1115f1c042976221f3e99[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Fri Oct 4 16:42:20 2024 +0900
+
+    Update 회원가입 & 공지 게시판 완성
+
+[33mcommit 8c79ef869c24828edf13c7619fe9d4a65fe510d3[m
+Merge: 14ee060f e064bde5
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Fri Oct 4 16:31:31 2024 +0900
+
+    Merge branch 'refs/heads/main' into review
+    
+    # Conflicts:
+    #       Learner/learner_react/src/App.js
+
+[33mcommit e064bde5cf940ce512d76da799121fc9d382f02e[m
+Merge: 9ecafafb ee7e2555
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Fri Oct 4 16:23:44 2024 +0900
+
+    Merge pull request #67 from prgrms-be-devcourse/react_news
+    
+    React news
+
+[33mcommit ee7e2555af3c7a59f210f2be5afb578244ddd79d[m
+Author: chanspar <qhrn12345@naver.com>
+Date:   Fri Oct 4 16:22:34 2024 +0900
+
+    Feature: 새소식 페이지 완성
+
+[33mcommit 261f6ad33e83794ccbd52335b1a585f86be0819b[m
+Author: chanspar <qhrn12345@naver.com>
+Date:   Fri Oct 4 15:22:36 2024 +0900
+
+    Feature: 좋아요기능완성
+
+[33mcommit 84c12a795672887e5be75a2521b2b50f23b855c8[m
+Merge: dc2b9372 9ecafafb
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Fri Oct 4 14:53:09 2024 +0900
+
+    Merge branch 'main' of https://github.com/prgrms-be-devcourse/NBE2_2_Team8 into frontOrder
+
+[33mcommit 70f5361337c3bfa3339e5c327ca5e29569459e70[m
+Merge: f0b616be 9ecafafb
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Fri Oct 4 14:41:52 2024 +0900
+
+    Merge pull request #66 from prgrms-be-devcourse/main
+    
+    메인
+
+[33mcommit 9ecafafb89573dd4c8b401a2795371ca54a03426[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Fri Oct 4 14:41:17 2024 +0900
+
+    Update nickName으로 다른 회원 조회 추가
+
+[33mcommit 14ee060f1e77c43f69267b8573a8a938d22f9b1f[m
+Merge: ebe3a478 9aa7b6f8
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Fri Oct 4 14:29:33 2024 +0900
+
+    Merge branch 'refs/heads/main' into review
+
+[33mcommit 146b448e86c8d6a3c74dae370029bb33a53bdbb3[m
+Merge: 01fdbe84 9aa7b6f8
+Author: chanspar <qhrn12345@naver.com>
+Date:   Fri Oct 4 14:29:18 2024 +0900
+
+    Merge branch 'main' into react_news
+
+[33mcommit dc2b9372eb44a6787fdc17ab6333634baa1f6af0[m
+Merge: 9555d79b 65a15565
+Author: rlaqudwn1 <162764129+rlaqudwn1@users.noreply.github.com>
+Date:   Fri Oct 4 14:06:50 2024 +0900
+
+    Merge pull request #65
+    
+    -Feature Order수정 및 Order 프론트 페이지
+
+[33mcommit 65a15565ab30ecf7c25c15495247b9cd37bee3a3[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Fri Oct 4 14:05:59 2024 +0900
+
+    -Feature Order수정 및 Order 프론트 페이지
+
+[33mcommit 9aa7b6f88a1c597dd7eb5f8ea098e09b38eb4577[m
+Merge: 9555d79b f0b616be
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Fri Oct 4 14:01:49 2024 +0900
+
+    Merge pull request #64 from prgrms-be-devcourse/Login
+    
+    Login 로그인시 memberId 로컬 저장소에 저장
+
+[33mcommit f0b616be10fb0b6d5988c461eb7d0c436105fa66[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Fri Oct 4 14:00:34 2024 +0900
+
+    Update 로그인시 memberId 로컬 저장소에 저장
+
+[33mcommit 01fdbe84675ae6c94b0a1bf0b2e85b0b61a196eb[m
+Author: chanspar <qhrn12345@naver.com>
+Date:   Fri Oct 4 12:40:53 2024 +0900
+
+    Update: 작성자(강사)가 일치할때 등록수정삭제 가능기능 완료
+
+[33mcommit d3a6ec212ee639697d1d7045a4d28ecdcf46f4c3[m
+Author: chanspar <qhrn12345@naver.com>
+Date:   Fri Oct 4 11:32:35 2024 +0900
+
+    Feature: 새소식 등록/수정/삭제 관리자와 강사만 등록가능
+
+[33mcommit 998bf67fcc1844c3d3842a2e97b5c66277bef156[m
+Merge: c9a91af3 9555d79b
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Fri Oct 4 09:45:05 2024 +0900
+
+    Merge pull request #63 from prgrms-be-devcourse/main
+    
+    메인 코드
+
+[33mcommit ebe3a478b78437c867866372a7f2595472358075[m
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Thu Oct 3 21:02:41 2024 +0900
+
+    Update InstructorReview 수정
+    Feature Review 페이지 생성
+
+[33mcommit 9555d79b9c66f24be5a621b336406bb1ff0a54df[m
+Merge: 5ac688af 750d0403
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Wed Oct 2 17:45:18 2024 +0900
+
+    Merge pull request #61 from prgrms-be-devcourse/course
+    
+    Course API 수정
+
+[33mcommit 5ac688af715c8993973b25a0f7a194bd39f46678[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Wed Oct 2 17:44:56 2024 +0900
+
+    Update data.sql 파일 생성
+
+[33mcommit 750d0403c63f4aa285c28480eed7728b7eacb11f[m
+Merge: 2d9da38e a9ae6fe4
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Wed Oct 2 17:44:22 2024 +0900
+
+    Merge pull request #60 from prgrms-be-devcourse/review
+    
+    api 수정
+
+[33mcommit a9ae6fe4fa2636e10d1f4d710549aad2dfbf12d7[m
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Wed Oct 2 17:43:34 2024 +0900
+
+    Update API 수정
+
+[33mcommit 658007a1ae28d1dd5d57cfaa1e5706cfdb0e8a03[m
+Merge: c02ba9ca 825d9981
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Wed Oct 2 17:40:46 2024 +0900
+
+    Merge branch 'refs/heads/main' into review
+    
+    # Conflicts:
+    #       Learner/src/main/java/edu/example/learner/courseabout/course/controller/CourseController.java
+
+[33mcommit 2d9da38e5276dc0344375eea14dc3eb582b89bad[m
+Merge: 2fee33bf c02ba9ca
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Wed Oct 2 17:30:44 2024 +0900
+
+    Merge pull request #59 from prgrms-be-devcourse/review
+    
+    Review api 수정
+
+[33mcommit c02ba9cabb8f1f63231f5335fd83c52d34288e3b[m
+Merge: 4ac79b4b 2fee33bf
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Wed Oct 2 17:28:53 2024 +0900
+
+    Merge branch 'refs/heads/course' into review
+
+[33mcommit 825d9981e9269b7435ee65c975855840f22af2f0[m
+Merge: c500ea6b 3ae6fad0
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Wed Oct 2 17:26:53 2024 +0900
+
+    Merge pull request #58 from rlaqudwn1/test
+    
+    -BugFix controller 정리
+
+[33mcommit 3ae6fad01b177163e93d44f99ce93fe8760b0382[m[33m ([m[1;31morigin/test[m[33m, [m[1;32mtest[m[33m)[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Wed Oct 2 17:22:29 2024 +0900
+
+    -BugFix controller 정리
+
+[33mcommit c500ea6b820b0c2306d3e04d22ff51799ac07c2d[m
+Merge: 77229881 abfd323f
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Wed Oct 2 17:15:39 2024 +0900
+
+    Merge pull request #57 from prgrms-be-devcourse/news
+    
+    Update 새소식 rest api 수정
+
+[33mcommit abfd323ff0148f73f1fc309423d650eaed7867fe[m
+Author: chanspar <qhrn12345@naver.com>
+Date:   Wed Oct 2 17:14:32 2024 +0900
+
+    Update 새소식 rest api 수정
+
+[33mcommit 77229881587ca4a105d41a6e2edfc499f6d53321[m
+Merge: 227842d6 a9482af5
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Wed Oct 2 17:13:01 2024 +0900
+
+    Merge pull request #56 from prgrms-be-devcourse/studytable
+    
+    컨트롤러 수정
+
+[33mcommit 227842d60d6128d6caa0206e43e7770aaec6fb2e[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Wed Oct 2 17:12:45 2024 +0900
+
+    Update 필요 없는 파일 삭제
+
+[33mcommit 4ac79b4b71efe99b5fa96c774393cd1feefc2018[m
+Merge: d0dea1cf 0c867bf8
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Wed Oct 2 17:12:11 2024 +0900
+
+    Merge branch 'refs/heads/main' into review
+
+[33mcommit a9482af5c2c63791835c4763bb28176e70cafe44[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Wed Oct 2 17:10:45 2024 +0900
+
+    Update 컨트롤러 url 수정
+
+[33mcommit 0c867bf89c225f02d98dc0db6eb45ca90f8521a3[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Wed Oct 2 17:08:11 2024 +0900
+
+    Update 로그인 및 시큐리티 설정
+
+[33mcommit 492de18bf0e9962f8496f24e11aed303c052962e[m
+Merge: 865a72c5 eb1f9e82
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Wed Oct 2 16:34:28 2024 +0900
+
+    Merge branch 'refs/heads/main' into studytable
+
+[33mcommit d0dea1cfd9c810ff46895a78e20b5071a22a4ea8[m
+Merge: d72e5e8f eb1f9e82
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Wed Oct 2 15:45:52 2024 +0900
+
+    Merge branch 'refs/heads/main' into review
+    
+    # Conflicts:
+    #       Learner/src/main/java/edu/example/learner/courseabout/order/controller/OrderController.java
+
+[33mcommit eb1f9e8243a238907aad448409e5633fac0568d1[m
+Merge: c128718b ba7209d9
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Wed Oct 2 15:30:33 2024 +0900
+
+    Merge pull request #55 from rlaqudwn1/test
+    
+    Test
+
+[33mcommit ba7209d91697e0bc7a804f70722054aeda05af82[m
+Merge: 49021b19 c128718b
+Author: rlaqudwn1 <162764129+rlaqudwn1@users.noreply.github.com>
+Date:   Wed Oct 2 15:30:12 2024 +0900
+
+    Merge branch 'main' into test
+
+[33mcommit d72e5e8fa4c8db6db339d80f207b63ec33b5021e[m
+Merge: 5e169ef7 c128718b
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Wed Oct 2 15:29:47 2024 +0900
+
+    Merge branch 'refs/heads/main' into review
+
+[33mcommit 49021b19823bad66ca4b9647383d8beaebbe199b[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Wed Oct 2 15:26:27 2024 +0900
+
+    -BugFix test 버그픽스
+
+[33mcommit c128718bb348aa70a6514008328cfb11161e3ccc[m
+Merge: 1514b3c6 cddf5c13
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Wed Oct 2 15:26:11 2024 +0900
+
+    Merge pull request #54 from prgrms-be-devcourse/react_news
+    
+    React news
+
+[33mcommit cddf5c134ab00eba095754dcd9a00a7823ceb0b8[m
+Merge: a923a457 1514b3c6
+Author: rlaqudwn1 <162764129+rlaqudwn1@users.noreply.github.com>
+Date:   Wed Oct 2 15:24:52 2024 +0900
+
+    Merge branch 'main' into react_news
+
+[33mcommit a923a457285516de57b4d3a336e428c7b09c788c[m
+Author: chanspar <qhrn12345@naver.com>
+Date:   Wed Oct 2 15:19:58 2024 +0900
+
+    Feature: 강의새소식페이지진행중
+
+[33mcommit 1514b3c6e3d8aafde9ddeeeb01e686c8bdcbb1c9[m
+Merge: 0d5478f6 c9a91af3
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Wed Oct 2 15:10:16 2024 +0900
+
+    Merge pull request #53 from prgrms-be-devcourse/Login
+    
+    Update React 실행 페이지 변경 및 회원가입 완성
+
+[33mcommit c9a91af3164cf30751b47a46ba0e7a813e71a8f5[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Wed Oct 2 15:09:50 2024 +0900
+
+    Update React 실행 페이지 변경 및 회원가입 완성
+
+[33mcommit 865a72c559bd59857a69b0581c138b9b6640a5e8[m
+Merge: fcfe1d58 0d5478f6
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Wed Oct 2 14:52:24 2024 +0900
+
+    Merge branch 'refs/heads/main' into studytable
+
+[33mcommit fcfe1d585f3a7df90aa3c39d0d5e12f639ff0005[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Wed Oct 2 14:47:53 2024 +0900
+
+    Feature StudyTable component 생성
+
+[33mcommit 5e169ef7cd294564e2a9ac20df98634e1703dca0[m
+Merge: c83521be 0d5478f6
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Wed Oct 2 12:08:25 2024 +0900
+
+    Merge branch 'refs/heads/main' into review
+
+[33mcommit 0bf7f889072f1779eba5100bd249544881a6a8e0[m
+Merge: 0dd104d1 0d5478f6
+Author: chanspar <qhrn12345@naver.com>
+Date:   Wed Oct 2 11:50:50 2024 +0900
+
+    Merge branch 'main' into react_news
+
+[33mcommit 0d5478f6554fea457240ff36a1939cc505aa1e36[m
+Merge: fb78fb72 a26bfbca
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Wed Oct 2 11:33:49 2024 +0900
+
+    Merge pull request #52 from prgrms-be-devcourse/Login
+    
+    Fix Cookie js사용 수정
+
+[33mcommit a26bfbca9906f1019b993a34f3ae2166e9c807ac[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Wed Oct 2 11:28:53 2024 +0900
+
+    Fix Cookie js사용 수정
+
+[33mcommit 20b708e076228e283b5d593b68d4b617adf9220c[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Wed Oct 2 10:39:44 2024 +0900
+
+    Merge branch 'main' of https://github.com/prgrms-be-devcourse/NBE2_2_Team8 into test
+
+[33mcommit 2fee33bff33b7c820150af42bd6b92a1af66db67[m
+Merge: b3569f32 c83521be
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Wed Oct 2 10:30:59 2024 +0900
+
+    Merge pull request #51 from prgrms-be-devcourse/review
+    
+    API 수정
+
+[33mcommit b3569f320990ec60f8873cf40cde8c91c151bdf8[m
+Merge: f9378254 f05cf100
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Wed Oct 2 10:27:13 2024 +0900
+
+    Merge pull request #50 from prgrms-be-devcourse/review
+    
+    api 수정
+
+[33mcommit c83521be18c94600c965926470fae9c1e0b14765[m
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Wed Oct 2 10:24:15 2024 +0900
+
+    Update API 수정
+
+[33mcommit 15a3ee89ef13c9eb82561befcfbf5a5cff6e68fb[m
+Merge: 795ff3f1 fb78fb72
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Wed Oct 2 10:21:43 2024 +0900
+
+    -BugFix test 버그픽스
+
+[33mcommit 0dd104d1b38f33450af3c271543b3c5f64b93707[m
+Merge: b4fcc7c1 fb78fb72
+Author: chanspar <qhrn12345@naver.com>
+Date:   Wed Oct 2 10:19:01 2024 +0900
+
+    Merge branch 'main' into react_news
+
+[33mcommit fb78fb72ced8dddb5161b98bf235029c6c8aace2[m
+Merge: 4ca88183 a2516044
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Wed Oct 2 10:18:31 2024 +0900
+
+    Merge pull request #49 from prgrms-be-devcourse/Login
+    
+    Fix JWT Filter /api 경로 제외 설정
+
+[33mcommit a25160443b113520e828ec8e6695a628787b452c[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Wed Oct 2 10:17:37 2024 +0900
+
+    Fix JWT Filter /api 경로 제외 설정
+
+[33mcommit b4fcc7c1196685b002ec35dd81bc0abc2c5c0128[m
+Merge: 4a36e4ca 4ca88183
+Author: chanspar <qhrn12345@naver.com>
+Date:   Wed Oct 2 09:43:51 2024 +0900
+
+    Merge branch 'main' into react_news
+
+[33mcommit 4ca88183c2c4b50028bf86abe6285dc5d717f291[m
+Merge: 58856a76 1d622b83
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Wed Oct 2 09:43:06 2024 +0900
+
+    Merge pull request #48 from prgrms-be-devcourse/Login
+    
+    Fix 로그인 Filter 수정
+
+[33mcommit 4a36e4ca2e60f1e774df2d8b91b4e72e68fd82f6[m
+Author: chanspar <qhrn12345@naver.com>
+Date:   Wed Oct 2 09:42:58 2024 +0900
+
+    Merge main
+
+[33mcommit 1d622b8394976df372dc0c2b5d9a5e597e6c5525[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Wed Oct 2 09:42:25 2024 +0900
+
+    Fix 로그인 Filter 수정
+
+[33mcommit 6c8dc04b133b28ea344d185fc9b964ad0657fc7e[m
+Merge: 2cd1525b 58856a76
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Wed Oct 2 09:14:11 2024 +0900
+
+    Merge pull request #47 from prgrms-be-devcourse/main
+    
+    main code clone
+
+[33mcommit ab3de54fa3bfecf0c71ca3e4b1639d7e6c50016e[m
+Merge: cf1295f1 58856a76
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Wed Oct 2 09:14:09 2024 +0900
+
+    Merge branch 'refs/heads/main' into studytable
+
+[33mcommit cf1295f16d00d404ceb69e4aec3b10ea2bddefe3[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Wed Oct 2 09:13:30 2024 +0900
+
+    Update StudyTableController 수정
+
+[33mcommit 795ff3f1702ecf878a64b716c5945f8f8cd6aeec[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Tue Oct 1 22:09:48 2024 +0900
+
+    -BugFix test 버그픽스
+
+[33mcommit 58856a76793b287249f4bb1cf52d989fdbcd07dc[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Tue Oct 1 19:25:42 2024 +0900
+
+    Feature JWTFilter 일부 수정 및, React 네이버 가입 연동
+
+[33mcommit 4287f9132c7bd5ef52b3de68d48f082c611e093e[m
+Merge: 182e82c4 d399596a
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Tue Oct 1 16:27:21 2024 +0900
+
+    Merge branch 'refs/heads/main' into studytable
+    
+    # Conflicts:
+    #       Learner/src/test/java/edu/example/learner/repository/AnswerRepositoryTests.java
+
+[33mcommit d399596ac2864b8574815999279ecaf1ed4b6501[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Tue Oct 1 16:10:31 2024 +0900
+
+    Update 기초 데이터 삽입 & 오류 수정
+
+[33mcommit 182e82c429236694188922b8305152d74618bb86[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Tue Oct 1 15:05:10 2024 +0900
+
+    Update StudyTableController 수정
+
+[33mcommit 833a087c48565e48bae5a6eb35f4a5e9e0955440[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Tue Oct 1 14:53:39 2024 +0900
+
+    Update 테스트 코드 수정
+
+[33mcommit 7ec67be7f9f5773045efaa0f32801ff9199601cd[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Tue Oct 1 14:47:51 2024 +0900
+
+    Docs - application.properties ignore 처리
+
+[33mcommit 6770d402aa80c026ca4104141ce0e95ef1fb5d3c[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Tue Oct 1 14:46:53 2024 +0900
+
+    Fix Test 코드 수정
+
+[33mcommit 3340206a5609439dfb98852e42367ecbff216342[m
+Merge: f05cf100 0d634a96
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Tue Oct 1 14:33:09 2024 +0900
+
+    Merge pull request #45 from prgrms-be-devcourse/studytable
+    
+    FAQ 테스트 코드 수정
+
+[33mcommit 0d634a96c8192d7f0ce49fe8eaba6af7edb8083e[m
+Merge: 4788a6d8 f05cf100
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Tue Oct 1 14:33:02 2024 +0900
+
+    Merge branch 'main' into studytable
+
+[33mcommit 4788a6d85d1836800b6e9055f1a19cb87bedbb94[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Tue Oct 1 14:31:24 2024 +0900
+
+    Update 테스트 코드 수정
+
+[33mcommit f05cf100c47562c2695a274577d838e849d078f1[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Tue Oct 1 12:38:36 2024 +0900
+
+    Delete youtube-time-extractor directory
+
+[33mcommit a97c8202cff487f3f23cd55fd73cab19a44ecd37[m
+Merge: 65e7af36 2cd1525b
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Tue Oct 1 12:27:49 2024 +0900
+
+    Merge pull request #43 from prgrms-be-devcourse/Login
+    
+    Oauth2 기능 도입 & 보안 강화
+
+[33mcommit 2cd1525b831489b62ab15703526e0dcb30ca09e2[m
+Merge: 5378f75f 65e7af36
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Tue Oct 1 12:27:42 2024 +0900
+
+    Merge branch 'main' into Login
+
+[33mcommit 5378f75f1e7f163cccba73546b65acfe6fc2c3c6[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Tue Oct 1 12:25:31 2024 +0900
+
+    Fix 보안 문제 해결
+
+[33mcommit 65e7af36936c6f3351bdc450a0b03d8689e1170d[m
+Merge: 8894d81f f9378254
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Tue Oct 1 11:59:33 2024 +0900
+
+    Merge pull request #42 from prgrms-be-devcourse/course
+    
+    Course main 병합
+
+[33mcommit 8894d81fd733c2ff482be97f9c76e4857ecbb970[m
+Merge: cee4e11d 11bfbf20
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Tue Oct 1 11:58:33 2024 +0900
+
+    Merge pull request #39 from prgrms-be-devcourse/studytable
+    
+    StudyTable
+
+[33mcommit e4c3e3e6013ea5cb6be4c9e87aba2e6383eca76f[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Tue Oct 1 11:56:43 2024 +0900
+
+    Feature Oauth2 인증 도입
+
+[33mcommit f937825486cfe77ab0e80e6f431720212e8c3299[m
+Merge: 5eb9841b 4d7a7e09
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Tue Oct 1 11:51:12 2024 +0900
+
+    Merge pull request #41 from prgrms-be-devcourse/review
+    
+    Feature ReviewServiceTest 추가
+
+[33mcommit 4d7a7e09a88939877cdf62b8fd39f881e5865068[m
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Tue Oct 1 11:50:37 2024 +0900
+
+    Feature ReviewServiceTest 추가
+
+[33mcommit 5eb9841b142c81a2f81641477a2c03d495083bd6[m
+Merge: c12d5e94 fa713586
+Author: rlaqudwn1 <162764129+rlaqudwn1@users.noreply.github.com>
+Date:   Tue Oct 1 11:49:54 2024 +0900
+
+    Merge pull request #40 from rlaqudwn1/courseVideo
+    
+    -BugFix test 버그픽스
+
+[33mcommit fa7135865a0389f805a518a74661c86b2e8f5539[m[33m ([m[1;31morigin/courseVideo[m[33m)[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Tue Oct 1 11:47:42 2024 +0900
+
+    -BugFix test 버그픽스
+
+[33mcommit 11bfbf2059250f109047bcbf5ea74ff21ee81731[m
+Merge: 767de4ae cee4e11d
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Tue Oct 1 11:42:19 2024 +0900
+
+    Merge branch 'refs/heads/main' into studytable
+
+[33mcommit 767de4ae487bf4c532b9563fd1b9da6db9c339c7[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Tue Oct 1 11:40:16 2024 +0900
+
+    Update StudyTable
+
+[33mcommit c12d5e94e116dfa149edde823e01d2f27747e650[m
+Merge: bee0cb3d c474ac38
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Tue Oct 1 11:04:29 2024 +0900
+
+    Merge pull request #38 from prgrms-be-devcourse/review
+    
+    test 수정
+
+[33mcommit c474ac38e3853d34afb3d71695d70c347db428ca[m
+Merge: 3fa4e58c bee0cb3d
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Tue Oct 1 10:36:01 2024 +0900
+
+    Merge branch 'course' into review
+
+[33mcommit 3fa4e58c7f3ced24e4fdd7ce2c14a5bb4c822801[m
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Tue Oct 1 10:35:42 2024 +0900
+
+    Update test 수정
+
+[33mcommit bee0cb3df94d6678daddc47095d17c66be327218[m
+Merge: 814ee2b1 19df9add
+Author: rlaqudwn1 <162764129+rlaqudwn1@users.noreply.github.com>
+Date:   Tue Oct 1 10:16:52 2024 +0900
+
+    Merge pull request #37 from rlaqudwn1/courseVideo
+    
+    -feature video 설정
+
+[33mcommit 19df9add25710a1f4c8a164b4e8459353f93696f[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Tue Oct 1 10:15:19 2024 +0900
+
+    -feature video 설정
+
+[33mcommit 30873b6951e9d04b25669c555a2316e1b301fed5[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Mon Sep 30 17:50:12 2024 +0900
+
+    Update InquiryServiceImpl 예외 수정
+    Update StudyTableService 메서드 추가
+    Update StudyTableRepository 수정 및 메서드 추가
+    Feature MonthlySummaryDTO 생성
+    Feature StudyTableServiceImpl 생성 - 일부 완료
+
+[33mcommit 6ea0b3bb52d5bccf2d8e22d386d71e8ed487ad49[m
+Merge: 47f717b1 cee4e11d
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Sep 30 16:39:00 2024 +0900
+
+    Merge pull request #36 from prgrms-be-devcourse/main
+    
+    Main code clone
+
+[33mcommit cee4e11d79925bcd8e727dda2e77338ffc5f700c[m
+Merge: 340e0eb2 814ee2b1
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Sep 30 16:38:30 2024 +0900
+
+    Merge pull request #35 from prgrms-be-devcourse/course
+    
+    Update API
+
+[33mcommit 814ee2b1a72c63d426b2e3b094d57a0367286682[m
+Merge: 39775733 92014ba3
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Mon Sep 30 16:37:20 2024 +0900
+
+    Merge pull request #34 from prgrms-be-devcourse/review
+    
+    API 수정
+
+[33mcommit 92014ba37a8668f731fb2ae338ef5428c0f3cc8f[m
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Mon Sep 30 16:34:13 2024 +0900
+
+    Update AnswerRestController API 수정
+
+[33mcommit c21972b446c404b9ebbefc2a79cf4f78fc8df85a[m
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Mon Sep 30 16:29:37 2024 +0900
+
+    Update Member, Course API 수정
+
+[33mcommit 88b28b95fde58dc5779a1802aacfdabc3b38735f[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Mon Sep 30 15:40:34 2024 +0900
+
+    Update StudyTableRepository 수정 및 메서드 추가
+
+[33mcommit 47f717b1151d955a951fa4ed6ec4ae7c3162351a[m
+Merge: 5c051c30 340e0eb2
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Sep 30 15:40:18 2024 +0900
+
+    Merge pull request #33 from prgrms-be-devcourse/main
+    
+    Update React추가
+
+[33mcommit 9d8cb07fb869813a507135de735acbf22d2ab674[m
+Merge: b442a9c3 340e0eb2
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Mon Sep 30 15:38:35 2024 +0900
+
+    Merge branch 'main' into review
+
+[33mcommit b442a9c3dc73f91aae45134e40d972eb86508690[m
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Mon Sep 30 15:37:42 2024 +0900
+
+    Update Member, Course API 수정
+
+[33mcommit 340e0eb21cef57241cc83552e7d53346d6095ad2[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Sep 30 15:37:17 2024 +0900
+
+    Update React추가
+
+[33mcommit 5c051c306a3be9c86b4d0e950d6c708d98967143[m
+Merge: 90a875ca 7cec349a
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Sep 30 15:10:38 2024 +0900
+
+    Merge pull request #32 from prgrms-be-devcourse/main
+    
+    Main  code clone
+
+[33mcommit 7cec349ae5af55f8c989e6da0c9a154e93b5cec2[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Sep 30 15:09:01 2024 +0900
+
+    Main package처리
+
+[33mcommit 2ce488139b7ec2896e78e5c91a03e2d30c013d8f[m
+Merge: 941772cf 39775733
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Sep 30 12:37:33 2024 +0900
+
+    Merge pull request #31 from prgrms-be-devcourse/course
+    
+    Course
+
+[33mcommit 39775733d846d9eb078209f71400f6e9ddac3341[m
+Merge: 28b6c4e8 941772cf
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Sep 30 12:37:28 2024 +0900
+
+    Merge branch 'main' into course
+
+[33mcommit 941772cff0c24cf5dfb55b5d7531e95cc99c5302[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Sep 30 12:36:32 2024 +0900
+
+    application.properties
+
+[33mcommit b82cb647e3223bbd8f96bac7e4bb8895a39d3760[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Sep 30 12:35:41 2024 +0900
+
+    Main 수정
+
+[33mcommit 28b6c4e8134b829c9eab36ff7a71fc9b7bbb687d[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Sep 30 12:31:44 2024 +0900
+
+    Update - application.properties 수정
+
+[33mcommit 5302f902ce1839873dc0cfcea59aada437ce89c6[m
+Merge: c4bf4a3b b1404eb9
+Author: chanspar <qhrn12345@naver.com>
+Date:   Mon Sep 30 12:27:30 2024 +0900
+
+    Merge pull request #27 from prgrms-be-devcourse/course_chans
+    
+    Course chans
+
+[33mcommit b1404eb9c3f9d6936bd7c4d31a67b2c079fc6939[m
+Merge: 52efede8 56b00c8d
+Author: chanspar <qhrn12345@naver.com>
+Date:   Mon Sep 30 12:26:53 2024 +0900
+
+    merge orign/course
+
+[33mcommit c4bf4a3bfb448f22af83195fd81b01aa33607a11[m
+Merge: 56b00c8d 801a9b4d
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Sep 30 12:23:53 2024 +0900
+
+    Merge pull request #25 from prgrms-be-devcourse/course_inquiry
+    
+    Course inquiry
+
+[33mcommit 801a9b4d176c988144987a47ab3110896069b1c1[m
+Merge: 94a30c46 56b00c8d
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Sep 30 12:23:47 2024 +0900
+
+    Merge branch 'course' into course_inquiry
+
+[33mcommit 94a30c4658551a006d5b078f05f5407577716c19[m
+Author: gahyeon <kahyun1890@gmail.com>
+Date:   Mon Sep 30 12:10:43 2024 +0900
+
+    Update Course Inquiry & Answer Controller
+
+[33mcommit 6e1804b5b069b507c7b1a479f43c35629ec53cc2[m
+Merge: 6392222f 17f8b19d
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Sep 30 12:06:59 2024 +0900
+
+    Merge pull request #24 from prgrms-be-devcourse/inquiry
+    
+    Inquiry, StudyTable
+
+[33mcommit 6392222fe99b13290c101e946df06a24be1909d8[m
+Merge: 705d2547 90a875ca
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Sep 30 12:05:44 2024 +0900
+
+    Merge pull request #23 from prgrms-be-devcourse/Login
+    
+    Login 시큐리티 설정 수정 및 Member CRUD 수정
+
+[33mcommit 90a875ca9c3a7f8e5091774e1888ebc532542886[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Mon Sep 30 12:04:38 2024 +0900
+
+    Update - Member CRUD & Security 설정 수정
+
+[33mcommit 17f8b19df7a356217293d34fb44fb4458626edc6[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Mon Sep 30 12:02:30 2024 +0900
+
+    Update StudyTable, StudyTableDTO, StudyTableRepository, StudyTableService, StudyTableController 추가
+
+[33mcommit 56b00c8d1bfa1a873f9be0b817abc4a6c1d192fb[m
+Merge: 6fe21179 84158812
+Author: rlaqudwn1 <162764129+rlaqudwn1@users.noreply.github.com>
+Date:   Mon Sep 30 12:01:35 2024 +0900
+
+    Merge pull request #22
+    
+    -Refactor 코드 수정
+
+[33mcommit 84158812f3b47248f22d6a737a67dc2448ab2c2e[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Mon Sep 30 12:01:07 2024 +0900
+
+    -Refactor 코드 수정
+
+[33mcommit c993c3cf9b52d7d8716fb9c6499b7aa519a38419[m
+Merge: db88755b 705d2547
+Author: gahyeon <kahyun1890@gmail.com>
+Date:   Mon Sep 30 10:44:29 2024 +0900
+
+    Merge branch 'main' into course_inquiry
+
+[33mcommit db88755bb92bb3347aeb96a13652d1e17e127081[m
+Author: gahyeon <kahyun1890@gmail.com>
+Date:   Mon Sep 30 10:33:30 2024 +0900
+
+    Update Course Inquiry 상태 변경 기능 추가
+
+[33mcommit 7749549a43a913bf3bf5d11292643e8a8397a320[m
+Author: gahyeon <kahyun1890@gmail.com>
+Date:   Mon Sep 30 10:31:49 2024 +0900
+
+    Feature CourseAnswer CRUD
+
+[33mcommit 6fe21179c7e339db7e7574e0373038bfef871ced[m
+Merge: 6fa4adf5 d08c3426
+Author: rlaqudwn1 <162764129+rlaqudwn1@users.noreply.github.com>
+Date:   Mon Sep 30 10:31:22 2024 +0900
+
+    Merge pull request #21 from rlaqudwn1/courseAlarm
+    
+    -Feature And BugFix Alarm Test코드 성공 및 버그 제거 임시 멤버 삭제
+
+[33mcommit d08c3426b42be278fdd3fa20446914cd6b1f6c6c[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Mon Sep 30 10:30:25 2024 +0900
+
+    -Feature And BugFix Alarm Test코드 성공 및 버그 제거 임시 멤버 삭제
+
+[33mcommit 6fa4adf50328cc45fe1397dfbfda444f0578d8e6[m
+Merge: c1d5658e 3b3450fd
+Author: rlaqudwn1 <162764129+rlaqudwn1@users.noreply.github.com>
+Date:   Sun Sep 29 22:05:37 2024 +0900
+
+    Merge pull request #20 from rlaqudwn1/courseAlarm
+    
+    -Feature Member AlarmList 추가 Alarm 버그 제거
+
+[33mcommit 3b3450fddcedc095d8df38c592053ec9207f6d90[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Sun Sep 29 22:04:07 2024 +0900
+
+    -bugFix Alarm 버그 제거
+
+[33mcommit c1d5658ef199a1d6c4c45256a23f4ddc5430e4ed[m
+Merge: 1bfe6a7c 9907b5d1
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Sun Sep 29 22:00:20 2024 +0900
+
+    Merge pull request #19 from prgrms-be-devcourse/review
+    
+    Instructor, Course Review CRUD 추가
+
+[33mcommit 9907b5d1dee468f9247a04ce884be7ebe06f6466[m
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Sun Sep 29 21:50:24 2024 +0900
+
+    Update ReviewService 수정
+    Update Review @EntityListener 추가
+    Update ReviewRepository 수정
+
+[33mcommit 355d2a88a6e1af0a523912a316814bdbf60eebee[m
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Sun Sep 29 21:37:56 2024 +0900
+
+    Feature ReviewException 추가
+
+[33mcommit 6ece09e159258457356cbbfb25eb2423667e3f9b[m
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Sun Sep 29 21:37:16 2024 +0900
+
+    Feature Controller 추가
+
+[33mcommit 4be67691900652eb5351f485dab472fc8be6d7ab[m
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Sun Sep 29 21:36:17 2024 +0900
+
+    Update ReviewDTO 수정
+    Update ReviewMapper 삭제
+
+[33mcommit 52efede81a265d168bfbc2b627d660e89312adcf[m
+Author: chanspar <qhrn12345@naver.com>
+Date:   Sun Sep 29 13:24:24 2024 +0900
+
+    Feature: 레디스 조회수 중복 & Update: 패키지 구조 변경
+
+[33mcommit 226f75fc651fe225a81a0a8060ee4cd039908f4e[m
+Merge: e7def1e7 1bfe6a7c
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Sat Sep 28 10:09:13 2024 +0900
+
+    Merge branch 'refs/heads/course' into review
+
+[33mcommit 1bfe6a7c7247c18b96302ed2345db639d3ce50b5[m
+Merge: 715b5ea0 a820a8e9
+Author: rlaqudwn1 <162764129+rlaqudwn1@users.noreply.github.com>
+Date:   Fri Sep 27 18:10:50 2024 +0900
+
+    Merge pull request #18
+    
+    courseAlarm
+
+[33mcommit a820a8e99a416a75f2e284578475b7c1c4e13223[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Fri Sep 27 18:09:59 2024 +0900
+
+    -bugFix HeartNewsService 쪽 int Long 변환 오류 있어서 임시로 바꿔놓았고
+    JPAAuditConfig 클래스에서
+    @EnableJpaAuditing 어노테이션을 사용해
+    LearnerApplication 클래스에서 사용하는
+    @EnableJpaAuditing랑 충돌해
+    JPAAuditConfig 클래스에서 쓰는 어노테이션을 주석으로 임시 닫아놓았습니다
+
+[33mcommit 715b5ea020e48783e71f83323f6152cd5c05693f[m
+Merge: 151f26e8 d40f3066
+Author: rlaqudwn1 <162764129+rlaqudwn1@users.noreply.github.com>
+Date:   Fri Sep 27 18:04:04 2024 +0900
+
+    Merge pull request #17
+    
+    -bugFix Alarm 버그 제거
+
+[33mcommit d40f306657ca7ae47ad22f25e458f05cd93e0f70[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Fri Sep 27 18:02:41 2024 +0900
+
+    -bugFix Alarm 버그 제거
+
+[33mcommit 151f26e84ce033f1b6d3026c4b6391d8b403c19f[m
+Merge: 02930757 8ed8448d
+Author: rlaqudwn1 <162764129+rlaqudwn1@users.noreply.github.com>
+Date:   Fri Sep 27 17:40:59 2024 +0900
+
+    Merge pull request #16 from prgrms-be-devcourse/course_news
+    
+    Course news
+
+[33mcommit 8ed8448de6c0c044f868c1f67f6bcbb94abae631[m
+Merge: 4fab9c03 02930757
+Author: rlaqudwn1 <162764129+rlaqudwn1@users.noreply.github.com>
+Date:   Fri Sep 27 17:40:51 2024 +0900
+
+    Merge branch 'course' into course_news
+
+[33mcommit 4fab9c0324c1c97eb395766a6abbb3ed99e69e72[m
+Merge: ceb6cb1e 705d2547
+Author: chanspar <qhrn12345@naver.com>
+Date:   Fri Sep 27 17:34:21 2024 +0900
+
+    merge main
+
+[33mcommit dfa8ac6dd1032f1e5dcae9a19f55f4b7bedf3808[m
+Merge: 15960435 705d2547
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Fri Sep 27 17:27:22 2024 +0900
+
+    Merge branch 'refs/heads/main' into inquiry
+
+[33mcommit ceb6cb1ec61be72f9ee4866e8da240e12031526f[m
+Merge: 3a4000eb 0ea556d3
+Author: chanspar <qhrn12345@naver.com>
+Date:   Fri Sep 27 17:25:56 2024 +0900
+
+    merge main
+
+[33mcommit 14537164866f2b30c339b552de3df4d8e2821cea[m
+Merge: e698f995 705d2547
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Fri Sep 27 17:24:02 2024 +0900
+
+    Merge pull request #15 from prgrms-be-devcourse/main
+    
+    Main code clone
+
+[33mcommit 705d254762724fb65e77b0d1b3992d1991c3f85c[m
+Merge: 0ea556d3 e698f995
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Fri Sep 27 17:22:58 2024 +0900
+
+    Merge pull request #14 from prgrms-be-devcourse/Login
+    
+    Feature Member CRUD & Security 설정
+
+[33mcommit e698f995659f3a6a9a8d83e9b9c98673a8b43183[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Fri Sep 27 17:21:12 2024 +0900
+
+    Feature - Member CRUD & Security 설정
+
+[33mcommit 3a4000eb3484788af2eb126fc6f7fbc8f6491720[m[33m ([m[1;32mcourse_news[m[33m)[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Fri Sep 27 16:38:25 2024 +0900
+
+    -feature Alarm Entity 생성
+
+[33mcommit aa7662d02421d550e1a0c5de19bfdcfe395112fa[m
+Author: gahyeon <kahyun1890@gmail.com>
+Date:   Fri Sep 27 14:21:41 2024 +0900
+
+    Feature CourseInquiry CRUD
+
+[33mcommit 731e9afd8be95a35c193c0b87531fe3a3daad2a5[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Fri Sep 27 12:45:37 2024 +0900
+
+    -test
+
+[33mcommit c4b9b81b807cde579bb7d5fae97e4b88c94a57a8[m
+Merge: 1c0c24e3 eca4f559
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Fri Sep 27 12:42:58 2024 +0900
+
+    Merge remote-tracking branch 'upstream/course_news' into course_news
+
+[33mcommit 1c0c24e3058d5aab80eb02401c6eaed84e48cef4[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Fri Sep 27 12:42:05 2024 +0900
+
+    -bug fix
+
+[33mcommit efbccc85817c8397d3fa41d0db294bc10f5f85bc[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Fri Sep 27 12:31:24 2024 +0900
+
+    -feature & and bugFix OrderCRUD CRUD 버그픽스 및
+    OrderException CourseException 생성
+
+[33mcommit 159604358c0a06d7768b755c50dece2e0a0aeb47[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Fri Sep 27 12:21:54 2024 +0900
+
+    Update MemberRepository 삭제
+
+[33mcommit d9b109479b874a9fa4b3335268e25d999f723da5[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Fri Sep 27 12:20:16 2024 +0900
+
+    Feature LearnerException, LearnerTaskException 생성
+    Update InquiryServiceImpl, AnswerServiceImpl, FAQServiceImpl 예외 수정
+
+[33mcommit eca4f5594daec7fb346a7d31fb2124762dbd0043[m
+Merge: 8b42bfe6 0d6fbd81
+Author: chanspar <qhrn12345@naver.com>
+Date:   Fri Sep 27 12:18:03 2024 +0900
+
+    Merge branch 'course_news' of https://github.com/prgrms-be-devcourse/NBE2_2_Team8 into course_news
+
+[33mcommit 8b42bfe6ad5d3f1f2b1b91135cc5ce6090676098[m
+Author: chanspar <qhrn12345@naver.com>
+Date:   Fri Sep 27 12:06:17 2024 +0900
+
+    Feature: 소식 좋아요 기능 완료
+
+[33mcommit 19a4f3566cd5c19a3c22080ba18fe4c77e3c826c[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Fri Sep 27 11:41:38 2024 +0900
+
+    Feature InquiryRestController, AnswerRestController, FAQRestController 생성
+
+[33mcommit a4ef76b12e598f4ab9260f465692eaa56d96ee7b[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Fri Sep 27 11:26:49 2024 +0900
+
+    Update InquiryServiceImpl, AnswerServiceImpl, FAQServiceImpl 어노테이션 추가
+
+[33mcommit 379175bed46a4c30ec6311b78d87ceb658b14505[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Fri Sep 27 11:25:21 2024 +0900
+
+    Update Inquiry member 필드 관계 수정
+
+[33mcommit e7def1e7538aa12aba0d37e7582e7512fff92b5f[m
+Merge: 5978100b 02930757
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Fri Sep 27 10:38:50 2024 +0900
+
+    Merge branch 'refs/heads/course' into review
+
+[33mcommit 514392ea5e207e174b07c15a3700478582ba2bda[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Fri Sep 27 10:15:46 2024 +0900
+
+    Update InquiryServiceImpl
+
+[33mcommit 3cf4a27633a93ede53e3ff8dd6945069db3f4286[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Fri Sep 27 10:14:30 2024 +0900
+
+    Refactor 패키지 리팩토링
+    Update Inquiry 엔티티 필드 추가
+
+[33mcommit ecb5664a52e0f5eaf5592fe043860cb240fbc6b8[m
+Author: chanspar <qhrn12345@naver.com>
+Date:   Fri Sep 27 09:33:42 2024 +0900
+
+    Feature: 쿠키로 조회수방지구현
+
+[33mcommit 8fb15178070d05de3068b5c442c2eddff836a7e8[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Fri Sep 27 09:31:33 2024 +0900
+
+    Feature FAQRepository, FAQService, FAQServiceImpl, FAQRepositoryTests, FAQServiceTests 생성
+    Update FAQ, FAQDTO 카테고리 필드 타입 변경
+
+[33mcommit 02930757c123f200ab68ae78e03de8b6f1c05aff[m
+Merge: bb707136 0d6fbd81
+Author: rlaqudwn1 <162764129+rlaqudwn1@users.noreply.github.com>
+Date:   Fri Sep 27 09:06:31 2024 +0900
+
+    Merge pull request #11 from prgrms-be-devcourse/course_news
+    
+    -feature & and bugFix OrderCRUD 버그픽스 및 OrderItem 추가 장바구니> 아이템 > 강의 연결
+
+[33mcommit 0d6fbd8119f6f145dee36eb51435332c59ce5e4e[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Fri Sep 27 09:05:07 2024 +0900
+
+    -feature & and bugFix OrderCRUD 버그픽스 및 OrderItem 추가 장바구니> 아이템 > 강의 연결
+
+[33mcommit 5cd8a753339383e1e2337dcf938ce0407be985b6[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Thu Sep 26 17:33:19 2024 +0900
+
+    Feature AnswerRepository 리포지토리, AnswerService 인터페이스, AnswerServiceImpl 클래스, AnswerRepositoryTests 테스트, AnswerServiceTests 테스트 생성
+
+[33mcommit de68774518b8fcc4a2ddc96da105e02b72ba04d9[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Thu Sep 26 16:27:54 2024 +0900
+
+    Feature InquiryService 인터페이스, InquiryServiceImpl 클래스 생성, InquiryServiceTests 테스트 생성
+
+[33mcommit 0894365e4ca47ec0c53e499c384a6b6e16abe631[m
+Merge: 4a8543fa bb707136
+Author: gahyeon <kahyun1890@gmail.com>
+Date:   Thu Sep 26 16:08:28 2024 +0900
+
+    Merge branch 'course' into course_inquiry
+
+[33mcommit 07a0c6261438add33866ac0e320b51e4893e7986[m
+Merge: 9b3cb136 bb707136
+Author: chanspar <qhrn12345@naver.com>
+Date:   Thu Sep 26 16:00:17 2024 +0900
+
+    Merge: from course
+
+[33mcommit 5978100b21176c590d681261f44d8d35f48079ba[m
+Merge: c51dcc21 bb707136
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Thu Sep 26 15:49:12 2024 +0900
+
+    Merge branch 'refs/heads/course' into review
+
+[33mcommit 9b3cb1362ddf843a69e65d1f2a75e7ec0b7660b6[m
+Author: chanspar <qhrn12345@naver.com>
+Date:   Thu Sep 26 15:46:50 2024 +0900
+
+    Feature: 새소식 컨트롤러 완료
+
+[33mcommit bb707136436534f716fa93bba5d2f8930615ec2f[m
+Merge: 2113c9fb 8b2f9163
+Author: rlaqudwn1 <162764129+rlaqudwn1@users.noreply.github.com>
+Date:   Thu Sep 26 15:44:23 2024 +0900
+
+    Merge pull request #10 from prgrms-be-devcourse/course_news
+    
+    -feature 강의 CRUD 장바구니CRUD (장바구니 수정 필요 add빼고 정상동작)
+
+[33mcommit 8b2f91637fc4bff8aa23c8658d4e770afadf8813[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Thu Sep 26 15:42:44 2024 +0900
+
+    -feature 강의 CRUD 장바구니CRUD (장바구니 수정 필요 add빼고 정상동작)
+
+[33mcommit d26c48506c56dea250cfdb239a64c8d25f94ab7d[m
+Author: chanspar <qhrn12345@naver.com>
+Date:   Thu Sep 26 14:41:38 2024 +0900
+
+    Feature: 새소식 서비스&테스트 완료
+
+[33mcommit a8cdf7874a8c32b94a711daf654a9c76e6633989[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Thu Sep 26 12:46:36 2024 +0900
+
+    Feature - MemberRepositoryTest 코드 추가
+
+[33mcommit 3b2edabecf1b8bb2725b51efba44a26bd6916379[m
+Merge: 4fca3988 0ea556d3
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Thu Sep 26 12:22:36 2024 +0900
+
+    Merge branch 'refs/heads/main' into inquiry
+
+[33mcommit 4fca398810f9675e464379f13fc363bd6e8af37e[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Thu Sep 26 12:21:08 2024 +0900
+
+    Feature InquiryRepositoryTests 테스트 생성
+
+[33mcommit a76b57951ecbedc32c7c78b6cf64cd76e17912e3[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Thu Sep 26 11:29:11 2024 +0900
+
+    Feature InquiryRepository 리포지토리 생성
+
+[33mcommit e295540353d9138c183742c831c546937494f81e[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Thu Sep 26 11:28:50 2024 +0900
+
+    Feature AnswerDTO, FAQDTO, InquiryDTO DTO 생성
+
+[33mcommit 1050164f450e83a381a2e47d5899b7e82d8d2e66[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Thu Sep 26 11:28:00 2024 +0900
+
+    Feature InquiryStatus, FAQCategory Enum 생성
+
+[33mcommit 07d42c368fdff46645dff37fe01932197dc3c204[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Thu Sep 26 11:27:15 2024 +0900
+
+    Feature FAQ 엔티티 생성
+
+[33mcommit 8741c93a6deca3d4a6e8f01a807984510aad63a0[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Thu Sep 26 11:27:04 2024 +0900
+
+    Feature Inquiry 엔티티 생성
+
+[33mcommit bd30a8c8ca2743795fb24d1105819b2aa2c20b73[m
+Author: 남현호 <143480257+namhyeonh0@users.noreply.github.com>
+Date:   Thu Sep 26 11:26:47 2024 +0900
+
+    Feature Answer 엔티티 생성
+
+[33mcommit 4a8543fab196b7cc1e8cbe4497f1eb4920915fbf[m
+Author: gahyeon <kahyun1890@gmail.com>
+Date:   Thu Sep 26 11:26:15 2024 +0900
+
+    Feature CourseInquiry Entity 생성
+
+[33mcommit c51dcc21ba3ed3d016ccf11da82f0e45bc9ed20d[m
+Merge: 2113c9fb 0ea556d3
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Thu Sep 26 11:23:38 2024 +0900
+
+    Merge branch 'main' into review
+
+[33mcommit 0ea556d32680f4f5700f3bf2fca8c66ebe06d6ff[m
+Merge: 61364b82 c65c9eb6
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Thu Sep 26 11:22:14 2024 +0900
+
+    Merge pull request #9 from prgrms-be-devcourse/Login
+    
+    Update 데이터 베이스 연결 설정
+
+[33mcommit c65c9eb6901db3dc4150534a6ec692f66d50a11f[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Thu Sep 26 11:20:59 2024 +0900
+
+    Update 데이터 베이스 연결 설정
+
+[33mcommit 2113c9fb59565a0c098fcff90c5ff81f02c3c523[m
+Merge: 3d6a6b45 39738a4c
+Author: chanspar <qhrn12345@naver.com>
+Date:   Thu Sep 26 11:10:06 2024 +0900
+
+    Merge pull request #8 from prgrms-be-devcourse/review
+    
+    Review
+
+[33mcommit 39738a4c772788e2dd37307fe601db7d817a9b40[m
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Thu Sep 26 10:35:06 2024 +0900
+
+    Feature review 엔티티 수정
+    Feature reviewDTO 생성
+    Feature review repository, service, mapper 생성
+
+[33mcommit 9a8d88efe01b58c19a71e377458a3911b08bab91[m
+Author: usingjun <97494494+usingjun@users.noreply.github.com>
+Date:   Thu Sep 26 10:14:31 2024 +0900
+
+    Feature review 엔티티 생성
+
+[33mcommit 3d6a6b45a8b9ef5c7ac22f8470f23c44bbab2b1b[m
+Merge: c31362b8 69c5e4b0
+Author: rlaqudwn1 <162764129+rlaqudwn1@users.noreply.github.com>
+Date:   Thu Sep 26 09:41:20 2024 +0900
+
+    Merge pull request #7 from prgrms-be-devcourse/course_news
+    
+    Course news
+
+[33mcommit 69c5e4b02d5dcdc4f008ee7ef5840942224ef02a[m
+Author: chanspar <qhrn12345@naver.com>
+Date:   Thu Sep 26 09:38:49 2024 +0900
+
+    Update 강의패키지수정
+
+[33mcommit c81ded19f0f2c09dbd804e47ef4c4bf439e27834[m
+Author: chanspar <qhrn12345@naver.com>
+Date:   Thu Sep 26 09:35:01 2024 +0900
+
+    feat news entity
+
+[33mcommit c31362b8dea7205f3857ea202c12df039419e7bc[m
+Merge: e6831e6a 61364b82
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Thu Sep 26 09:31:05 2024 +0900
+
+    Merge pull request #6 from prgrms-be-devcourse/main
+    
+    main code clone
+
+[33mcommit 61364b8215d8accc0b55b8d4b1947fa554d089a0[m
+Merge: 435f4608 5da65ad0
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Thu Sep 26 09:28:44 2024 +0900
+
+    Merge pull request #5 from rlaqudwn1/courseEntity
+    
+    courseEntity
+
+[33mcommit 5da65ad01cfb0a444c3c53a0080a525273994187[m[33m ([m[1;31morigin/courseEntity[m[33m)[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Thu Sep 26 09:22:46 2024 +0900
+
+    -feature Course Entity 생성
+
+[33mcommit e6831e6a2a350329e45a98b665ee60e715b1c80e[m
+Merge: ed49cefc 18fc26b1
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Thu Sep 26 09:15:59 2024 +0900
+
+    Merge pull request #3 from prgrms-be-devcourse/order
+    
+    feature order 엔티티 생성
+
+[33mcommit 18fc26b1a1a92d3f475db6c1ee674a73bfd814a1[m
+Author: rlaqudwn1 <rlaqudwn123456@gmail.com>
+Date:   Thu Sep 26 09:13:38 2024 +0900
+
+    feature order 엔티티 생성
+
+[33mcommit ed49cefc6af8c51267bd7e694c253b7aa12a2b6f[m
+Merge: 97c2f5a4 435f4608
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Wed Sep 25 17:37:36 2024 +0900
+
+    Merge pull request #2 from prgrms-be-devcourse/main
+    
+    Update_ member 테이블 생성
+
+[33mcommit 435f4608e7bfe4038d6dc080362758b47355d0f3[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Wed Sep 25 17:18:20 2024 +0900
+
+    Update_ member 테이블 생성
+
+[33mcommit 97c2f5a477470ca1110bfafb358654e2424f9928[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Wed Sep 25 16:37:22 2024 +0900
+
+    Update 기초 의존성 추가 & 데이터베이스 설정
+
+[33mcommit d32235020a3a5e2a13878601173b4b157d4cef03[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Tue Sep 24 12:08:03 2024 +0900
+
+    Update README.md
+
+[33mcommit c1cbdcb4b14860171102c7a41d101952bb6de1b8[m
+Author: rlaqudwn1 <162764129+rlaqudwn1@users.noreply.github.com>
+Date:   Tue Sep 24 12:03:18 2024 +0900
+
+    Update README.md
+
+[33mcommit 07ad66b0992f02e3d5adf1425fb334a6f4b37223[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Tue Sep 24 11:27:52 2024 +0900
+
+    Update README.md
+
+[33mcommit d90748aadf64babc212b081e4523ecf51d0a8450[m
+Merge: 1aca007a a981f05a
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Tue Sep 24 11:26:46 2024 +0900
+
+    Merge branch 'main' of https://github.com/prgrms-be-devcourse/NBE2_2_Team8
+
+[33mcommit 1aca007a2a644432b9fddb4611d69c7fe878fe20[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Tue Sep 24 11:26:36 2024 +0900
+
+    Create Docs
+
+[33mcommit a981f05a2ac652323033669fc865956c453c76d9[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Tue Sep 24 11:20:49 2024 +0900
+
+    Delete docs
+
+[33mcommit e7e456088238aa8660dcdd53c9a0bfa83e921a1f[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Tue Sep 24 11:20:35 2024 +0900
+
+    Create docs
+
+[33mcommit cac714c939b385590c4e081600219dad9ff04463[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Tue Sep 24 11:19:37 2024 +0900
+
+    Update README.md
+
+[33mcommit a20e81d88ad7fcbb5e235c0c0ba78d6aa61f33bd[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Tue Sep 24 11:13:59 2024 +0900
+
+    Update README.md
+
+[33mcommit 0ab6f66dd4f1147cf04f9ad774230a93afa3425f[m
+Author: Si-rauis <kkyd7189@gmail.com>
+Date:   Tue Sep 24 11:02:55 2024 +0900
+
+    Initial commit
