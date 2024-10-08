@@ -30,7 +30,6 @@ export default function CourseNews() {
             }
 
             const nickname = await response.text();
-            // console.log("Instructor Nickname:", nickname);
             setInstructorName(nickname);
         } catch (err) {
             console.error("Failed to fetch instructor nickname:", err);
@@ -46,21 +45,18 @@ export default function CourseNews() {
                 .find(row => row.startsWith('Authorization='))
                 ?.split('=')[1];
 
-            // console.log("토큰:", token);
             if (token) {
                 const decodedToken = jwtDecode(token);
                 setUserRole(decodedToken.role);
                 const email = decodedToken.mid;
-                // console.log("디코딩된 토큰:", decodedToken);
 
                 const response = await fetch(`http://localhost:8080/member/nickname?email=${email}`, {
-                    withCredentials: true,
+                    credentials: 'include',
                 });
                 if (!response.ok) {
                     throw new Error("닉네임을 가져오는 데 실패했습니다.");
                 }
                 const nickname = await response.text(); // JSON이 아닌 문자열 반환
-                // console.log("닉네임:", nickname);
                 setUserName(nickname); // 닉네임을 상태에 설정
             }
         } catch (error) {
@@ -75,7 +71,6 @@ export default function CourseNews() {
             });
             if (!res.ok) throw new Error('Failed to fetch news');
             const data = await res.json();
-            // console.log("Fetched news:", data);
             setNews(data);
             setLiked(data.liked); // Initialize liked based on fetched news data
         } catch (err) {
@@ -93,6 +88,7 @@ export default function CourseNews() {
         };
 
         try {
+            // 현재 좋아요 상태를 반영하기 위해 데이터를 가져옴
             const res = await fetch(`http://localhost:8080/course/${courseId}/news/${newsId}/like?memberId=${memberId}`, {
                 credentials: 'include',
             });
@@ -100,14 +96,14 @@ export default function CourseNews() {
             if (!res.ok) throw new Error('Failed to fetch like status');
 
             const data = await res.json();
-            // console.log("Fetched like status:", data);
-            setLiked(data);
+            setLiked(data); // 현재 좋아요 상태 설정
 
-            const method = data ? 'DELETE' : 'PATCH';
+            const method = data ? 'DELETE' : 'PATCH'; // 상태에 따라 메소드 결정
 
+            // 좋아요 상태 업데이트 요청
             const likeRes = await fetch(`http://localhost:8080/course/${courseId}/news/${newsId}/like`, {
                 method: method,
-                credentials: 'include', // Corrected option for CORS
+                credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -118,13 +114,12 @@ export default function CourseNews() {
 
             await likeRes.text();
 
+            // 상태를 반전시키고 좋아요 수 업데이트
             setLiked(!data);
             setNews(prev => ({
                 ...prev,
                 likeCount: data ? prev.likeCount - 1 : prev.likeCount + 1
             }));
-
-            fetchNewsData();
         } catch (err) {
             console.error(`${liked ? '좋아요 취소 실패' : '좋아요 실패'}:`, err);
             alert('좋아요 처리 중 오류가 발생했습니다.');
@@ -152,18 +147,12 @@ export default function CourseNews() {
     };
 
     const canCreateNews = () => {
-        // console.log("Current state:", {
-        //     userRole,
-        //     userName,
-        //     instructorName
-        // });
-
         return (userRole === 'INSTRUCTOR' && userName === instructorName) ||
             userRole === 'ADMIN';
     };
 
     const handleUpdateNews = () => {
-        if (canCreateNews()) { // Use canCreateNews instead of canEdit
+        if (canCreateNews()) {
             navigate(`/courses/${courseId}/news/${newsId}/edit`);
         } else {
             alert('새소식 수정은 강사 또는 관리자만 가능합니다.');
@@ -213,7 +202,6 @@ const ButtonContainer = styled.div`
     display: flex;
     gap: 10px;
 `;
-
 
 const NewsContainer = styled.div`
     max-width: 800px;
@@ -282,33 +270,31 @@ const LikeButton = styled.button`
 `;
 
 const EditButton = styled.button`
-padding: 8px 16px;
-background-color: #007bff;
-color: white;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-transition: background-color 0.2s;
-font-size: 14px;
-margin-left: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 14px;
 
-&:hover {
-    background-color: #0056b3;
-}
+    &:hover {
+        background-color: #0056b3;
+    }
 `;
 
 const DeleteButton = styled.button`
-padding: 8px 16px;
-background-color: #dc3545;
-color: white;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-transition: background-color 0.2s;
-font-size: 14px;
-margin-left: 10px;
+    padding: 8px 16px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 14px;
 
-&:hover {
-    background-color: #c82333;
-}
+    &:hover {
+        background-color: #c82333;
+    }
 `;
