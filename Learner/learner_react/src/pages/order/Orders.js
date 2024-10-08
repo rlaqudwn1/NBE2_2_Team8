@@ -70,6 +70,7 @@ const Orders = () => {
                         <p>주문 ID: <strong>{order.orderId}</strong></p>
                         <p>주문 날짜: <strong>{new Date(order.createdDate).toLocaleDateString()}</strong></p>
                         <p>총 금액: <strong>{order.totalPrice} 원</strong></p>
+                        <p>주문 상황: <strong>{order.orderStatus}</strong></p>
                         <ButtonContainer>
                             <StyledButton onClick={() => handleUpdateClick(order.orderId)} secondary>수정</StyledButton>
                             <Link to={`/orders/${order.orderId}`}>
