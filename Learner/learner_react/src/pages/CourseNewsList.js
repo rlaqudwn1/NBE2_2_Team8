@@ -21,7 +21,7 @@ const CourseNewsList = ({ courseId }) => {
     const fetchInstructorName = async () => {
         try {
             const response = await fetch(`http://localhost:8080/course/${courseId}/member-nickname`, {
-                withCredentials: true,
+                credentials: 'include',
             });
 
             if (!response.ok) {
@@ -51,7 +51,7 @@ const CourseNewsList = ({ courseId }) => {
                 const email = decodedToken.mid;
 
                 const response = await fetch(`http://localhost:8080/member/nickname?email=${email}`, {
-                    withCredentials: true,
+                    credentials: 'include',
                 });
                 if (!response.ok) {
                     throw new Error("닉네임을 가져오는 데 실패했습니다.");
@@ -79,7 +79,7 @@ const CourseNewsList = ({ courseId }) => {
 
     const fetchNews = (page) => {
         fetch(`http://localhost:8080/course/${courseId}/news?page=${page}&size=${newsPerPage}`, {
-            withCredentials: true,
+            credentials: 'include',
         })
             .then(res => res.json())
             .then(data => {

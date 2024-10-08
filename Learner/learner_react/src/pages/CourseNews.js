@@ -22,7 +22,7 @@ export default function CourseNews() {
     const fetchInstructorName = async () => {
         try {
             const response = await fetch(`http://localhost:8080/course/${courseId}/member-nickname`, {
-                withCredentials: true,
+                credentials: 'include',
             });
 
             if (!response.ok) {
@@ -71,7 +71,7 @@ export default function CourseNews() {
     const fetchNewsData = async () => {
         try {
             const res = await fetch(`http://localhost:8080/course/${courseId}/news/${newsId}`, {
-                withCredentials: true,
+                credentials: 'include',
             });
             if (!res.ok) throw new Error('Failed to fetch news');
             const data = await res.json();
@@ -107,7 +107,7 @@ export default function CourseNews() {
 
             const likeRes = await fetch(`http://localhost:8080/course/${courseId}/news/${newsId}/like`, {
                 method: method,
-                withCredentials: true,
+                credentials: 'include', // Corrected option for CORS
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -138,7 +138,7 @@ export default function CourseNews() {
 
         fetch(`http://localhost:8080/course/${courseId}/news/${newsId}`, {
             method: 'DELETE',
-            withCredentials: true,
+            credentials: 'include',
         })
             .then(res => {
                 if (!res.ok) throw new Error('Failed to delete news');
