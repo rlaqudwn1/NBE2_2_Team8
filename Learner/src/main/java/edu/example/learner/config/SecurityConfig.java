@@ -65,12 +65,12 @@ public class SecurityConfig{
                 .authorizeHttpRequests((auth) -> auth
                         //로그인 권한 설정
                         .requestMatchers("/login").permitAll()
-                        .requestMatchers("/join/*").permitAll()                                                                //로그인 및 회원가입 모두 허용
-                        .requestMatchers("/members/find/*").permitAll()                                                                //비밀번호 찾기 및 아이디 찾기 모두 허용
+                        .requestMatchers("/join/*").permitAll()                                                                 //로그인 및 회원가입 모두 허용
+                        .requestMatchers("/members/find/*").permitAll()                                                         //비밀번호 찾기 및 아이디 찾기 모두 허용
                         //강의 문의 권한 설정
-                        .requestMatchers(HttpMethod.GET, "/course-inquiry/**").permitAll()                                      // GET 요청 course 모두 허용
-                        .requestMatchers(HttpMethod.POST, "/course-inquiry/**").hasAnyRole("USER", "INSTRUCTOR","ADMIN")          // POST 요청 course 권한 설정
-                        .requestMatchers(HttpMethod.DELETE, "/course-inquiry/**").hasAnyRole("INSTRUCTOR","ADMIN")        // DELETE 요청 course 권한 설정
+                        .requestMatchers(HttpMethod.GET, "/course/{courseId}/course-inquiry/**").permitAll()                                      // GET 요청 course 모두 허용
+                        .requestMatchers(HttpMethod.POST, "/course/{courseId}/course-inquiry").hasAnyRole("USER","INSTRUCTOR","ADMIN")     // POST 요청 course 권한 설정
+                        .requestMatchers(HttpMethod.DELETE, "/course/{courseId}/course-inquiry/{inquiryId}").hasAnyRole("USER","INSTRUCTOR","ADMIN")        // DELETE 요청 course 권한 설정
                         //리뷰 권한 설정
                         .requestMatchers(HttpMethod.GET,"/reviews/**").permitAll()                                               // GET 요청 course 모두 허용
                         .requestMatchers(HttpMethod.POST, "/reviews/**").hasAnyRole("USER","INSTRUCTOR","ADMIN")          // POST 요청 reviews 권한 설정
@@ -105,7 +105,8 @@ public class SecurityConfig{
                         .requestMatchers("/study-tables/**").permitAll()
                         //회원 권한 설정
                         .requestMatchers("/member/{id}/other").permitAll()                                                     //다른 회원 프로필 보기
-                        .requestMatchers("/member/instructor").permitAll()
+                        .requestMatchers(HttpMethod.GET,"/members/instructor/*").permitAll()
+                        .requestMatchers(HttpMethod.GET,"/members/instructor/{nickname}/reviews/list").permitAll()
                         .requestMatchers("/member/nickname").permitAll()//강사 프로필 보기
                         .requestMatchers("/member/**").hasAnyRole("USER","INSTRUCTOR","ADMIN")                           //로그인 된 사용자만 회원정보 수정가능
                         .requestMatchers(HttpMethod.GET,"/members/list").hasRole("ADMIN")                                      //회원 목록 조회 권한 설정

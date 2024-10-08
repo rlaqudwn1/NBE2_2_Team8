@@ -15,6 +15,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
 
@@ -39,18 +41,21 @@ public class JWTCheckFilter extends OncePerRequestFilter {
         log.info("method : " + method);
         log.info("requestURI : " + requestURI);
 
+        // URL 디코딩
+        String decodedURI = URLDecoder.decode(requestURI, StandardCharsets.UTF_8);
+        log.info("decodedURI : " + decodedURI);
 
         if((request.getMethod().equals("GET") && (
                 (   requestURI.matches("/course/\\d+") ||
                     requestURI.matches("/course/\\d+/member-nickname") ||
                     requestURI.matches("/course/video/\\d+") ||
                     requestURI.matches("/course/list") ||
-                    requestURI.matches("/members/\\w+/other") ||
-                    requestURI.matches("/members/instructor/\\w+/other")||
+                    decodedURI.matches("/members/[\\w가-힣]+/other") ||
+                    decodedURI.matches("/members/instructor/[\\w가-힣]+")||
                     requestURI.matches("/course/\\d+/news/\\d+") ||
                     requestURI.matches("/course/\\d+/news")   ||
                     requestURI.matches("/members/find/.*")  ||
-                    requestURI.matches("/members/instructor/\\w+/reviews/list") ||
+                    decodedURI.matches("/members/instructor/[\\w가-힣]+/reviews/list") ||
                     requestURI.matches("/inquiries")    ||
                     requestURI.matches("/course/\\d+/reviews/list") ||
                     requestURI.matches("/course/\\d+/course-inquiry/\\d+") ||
