@@ -1,18 +1,18 @@
-import React, { useState } from "react";
 import styled from "styled-components";
+import { useState } from "react";
 
 const SignUp = () => {
     const [form, setForm] = useState({
-        email: "", // 이메일 추가
+        email: "",
         password: "",
         confirmPassword: "",
-        nickname: "", // 닉네임 필드
-        phoneNumber: "", // 전화번호 필드
+        nickname: "",
+        phoneNumber: "",
         profileImage: "",
         introduction: "",
     });
 
-    const [errorMessage, setErrorMessage] = useState(""); // 에러 메시지 상태 추가
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -24,33 +24,31 @@ const SignUp = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setErrorMessage(""); // 이전 에러 메시지 초기화
+        setErrorMessage("");
         try {
             const response = await fetch("http://localhost:8080/join/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(form), // form 데이터를 JSON 문자열로 변환
+                body: JSON.stringify(form),
             });
 
-            // 응답 상태가 2xx가 아닐 경우 처리
             if (!response.ok) {
-                const errorData = await response.json(); // JSON 응답 파싱
-                throw new Error(errorData.error); // 에러 메시지 추출
+                const errorData = await response.text();
+                const errorObject = JSON.parse(errorData);
+                const message = errorObject.error || "알 수 없는 오류가 발생했습니다.";
+                setErrorMessage(message);
+                return;
             }
 
-            // 성공적으로 회원가입이 완료된 경우
-            alert("회원가입에 성공하셨습니다."); // 알림창 표시
-            window.location.href = "http://localhost:3000/courses"; // 리다이렉트
-
+            alert("회원가입에 성공하셨습니다.");
+            window.location.href = "http://localhost:3000/courses";
         } catch (error) {
             console.error("Error:", error);
-            setErrorMessage(error.message); // 에러 메시지를 상태에 저장
+            setErrorMessage("로그인 요청 중 오류가 발생했습니다. " + (error.message || "알 수 없는 오류가 발생했습니다."));
         }
     };
-
-
 
     const handleNaverClick = () => {
         window.location.href = "http://localhost:8080/oauth2/authorization/naver";
@@ -66,12 +64,12 @@ const SignUp = () => {
             <Form onSubmit={handleSubmit}>
                 <Label>이메일</Label>
                 <Input
-                    type="email" // 이메일 형식
+                    type="email"
                     name="email"
                     value={form.email}
                     onChange={handleChange}
                     placeholder="이메일을 입력하세요"
-                    required // 필수 입력
+                    required
                 />
 
                 <Label>비밀번호</Label>
@@ -81,7 +79,7 @@ const SignUp = () => {
                     value={form.password}
                     onChange={handleChange}
                     placeholder="비밀번호를 입력하세요"
-                    required // 필수 입력
+                    required
                 />
 
                 <Label>비밀번호 확인</Label>
@@ -91,7 +89,7 @@ const SignUp = () => {
                     value={form.confirmPassword}
                     onChange={handleChange}
                     placeholder="비밀번호를 다시 입력하세요"
-                    required // 필수 입력
+                    required
                 />
 
                 <Label>닉네임</Label>
@@ -101,7 +99,7 @@ const SignUp = () => {
                     value={form.nickname}
                     onChange={handleChange}
                     placeholder="닉네임을 입력하세요"
-                    required // 필수 입력
+                    required
                 />
 
                 <Label>전화번호</Label>
@@ -111,19 +109,27 @@ const SignUp = () => {
                     value={form.phoneNumber}
                     onChange={handleChange}
                     placeholder="전화번호를 입력하세요"
-                    required // 필수 입력
+                    required
                 />
 
                 <SubmitButton type="submit">가입하기</SubmitButton>
             </Form>
 
-            {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>} {/* 에러 메시지 표시 */}
+            {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
 
             <SimpleSignUp>
                 <span>간편 회원가입</span>
                 <SocialButtons>
-                    <SocialButton onClick={handleNaverClick}>네이버</SocialButton>
-                    <SocialButton onClick={handleGoogleClick}>구글</SocialButton>
+                    <Icon
+                        src="http://localhost:8080/images/google_login.png"
+                        alt="Google Logo"
+                        onClick={handleGoogleClick} // 클릭 이벤트 추가
+                    />
+                    <Icon
+                        src="http://localhost:8080/images/naver_login.png"
+                        alt="Naver Logo"
+                        onClick={handleNaverClick} // 클릭 이벤트 추가
+                    />
                 </SocialButtons>
             </SimpleSignUp>
         </SignUpContainer>
@@ -186,24 +192,21 @@ const SimpleSignUp = styled.div`
 `;
 
 const SocialButtons = styled.div`
-    display: flex;
+    display: flex;   // flex-direction을 row로 변경하여 가로 배치
     justify-content: center;
-    gap: 1rem;
+    align-items: center;
+    gap: 2rem;  // 버튼 간 간격을 넓힘
 `;
 
-const SocialButton = styled.button`
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    &:hover {
-        background-color: #f1f1f1;
-    }
+const Icon = styled.img`
+    width: 100px;  // 더 큰 크기로 설정
+    height: 100px; // 더 큰 크기로 설정
+    cursor: pointer;  // 클릭 가능한 손모양 커서 추가
+    object-fit: contain;
 `;
 
 const ErrorMessage = styled.div`
-    color: red; /* 에러 메시지 색상 */
+    color: red;
     margin-top: 1rem;
     font-size: 0.9rem;
 `;

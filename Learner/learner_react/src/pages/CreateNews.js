@@ -58,7 +58,7 @@ const CreateNews = () => {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}` // JWT 토큰을 Authorization 헤더에 추가
             },
-            withCredentials: true,
+            credentials: 'include',
             body: JSON.stringify(newsRqDTO),
         })
             .then(res => {
