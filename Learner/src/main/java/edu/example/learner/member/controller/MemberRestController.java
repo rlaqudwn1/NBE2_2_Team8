@@ -3,6 +3,12 @@ package edu.example.learner.member.controller;
 import edu.example.learner.member.dto.MemberDTO;
 import edu.example.learner.member.entity.Member;
 import edu.example.learner.member.service.MemberService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
@@ -15,11 +21,19 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/members")
 @RequiredArgsConstructor
 @Log4j2
+@Tag(name = "회원 컨트롤러", description = "회원 조회, 수정, 탈퇴와 관련된 API입니다.")
 public class MemberRestController {
     private final MemberService memberService;
 
     //이미지 업로드
     @PutMapping("/{memberId}/image")
+    @Operation(summary = "이미지 업로드", description = "사진 파일을 받아 프로필 사진을 변경합니다.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "프로필 변경에 성공하였습니다."),
+            @ApiResponse(responseCode = "404", description = "프로필 변경에 실패하였습니다.",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(example = "{\"error\": \"프로필 변경에 실패하였습니다.\"}")))
+    })
     public ResponseEntity<String> memberUploadImage(@RequestParam("file") MultipartFile file,
                                                     @PathVariable Long memberId) {
         log.info("--- memberUploadImage()");
@@ -44,6 +58,13 @@ public class MemberRestController {
 
     //이미지 삭제
     @DeleteMapping("{memberId}/image")
+    @Operation(summary = "이미지 삭제", description = "프로필 사진을 삭제합니다.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "프로필 삭제에 성공하였습니다."),
+            @ApiResponse(responseCode = "404", description = "프로필 삭제에 실패하였습니다.",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(example = "{\"error\": \"프로필 삭제에 실패하였습니다.\"}")))
+    })
     public ResponseEntity<String> deleteMember(@PathVariable Long memberId) {
         log.info("--- memberDelete()");
         memberService.removeImage(memberId);
@@ -53,6 +74,13 @@ public class MemberRestController {
 
     //마이페이지
     @GetMapping("/{memberId}")
+    @Operation(summary = "회원 조회", description = "회원의 개인정보를 가져옵니다")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "회원 조회에 성공하였습니다."),
+            @ApiResponse(responseCode = "404", description = "회원 조회에 실패하였습니다.",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(example = "{\"error\": \"회원 조회에 실패하였습니다.\"}")))
+    })
     public ResponseEntity<MemberDTO> myPageRead(@PathVariable Long memberId) {
         log.info("--- myPageRead()");
         log.info(memberId);
@@ -63,6 +91,13 @@ public class MemberRestController {
 
     //다른 사용자 조회
     @GetMapping("/{nickname}/other")
+    @Operation(summary = "다른 회원 조회", description = "다른 회원의 공개된 정보를 가져옵니다")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "다른 회원 조회에 성공하였습니다."),
+            @ApiResponse(responseCode = "404", description = "다른 회원 조회에 실패하였습니다.",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(example = "{\"error\": \"다른 회원 조회에 실패하였습니다.\"}")))
+    })
     public ResponseEntity<MemberDTO> memberRead(@RequestParam String nickname) {
         log.info("--- memberRead()");
         MemberDTO memberDTO = memberService.getMemberInfoNickName(nickname);
@@ -72,6 +107,13 @@ public class MemberRestController {
 
     //회원 정보 수정
     @PutMapping("/{memberId}")
+    @Operation(summary = "회원 정보 수정", description = "회원의 이메일, 비밀번호, 닉네임을 변경합니다.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "회원 정보 수정회에 성공하였습니다."),
+            @ApiResponse(responseCode = "404", description = "회원 정보 수정에 실패하였습니다.",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(example = "{\"error\": \"회원 정보 수정에 실패하였습니다.\"}")))
+    })
     public ResponseEntity<MemberDTO> memberModify(@RequestBody @Validated MemberDTO memberDTO,
                                                   @PathVariable Long memberId) {
         log.info("--- memberModify()");

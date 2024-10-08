@@ -102,7 +102,19 @@ public class SecurityConfig{
                         .requestMatchers(HttpMethod.DELETE,"/news/**").hasAnyRole("INSTRUCTOR","ADMIN")                 //DELETE 요청 news 권한 설정
                         //좋아요
                         .requestMatchers(HttpMethod.GET, "/like/**").permitAll()                                                            //좋아요 요청 모두 허용
-                        .requestMatchers("/like/**").hasAnyRole("USER","INSTRUCTOR","ADMIN")                            //좋아요 요청 모두 허용
+                        .requestMatchers("/like/**").hasAnyRole("USER","INSTRUCTOR","ADMIN")                              //좋아요 요청 모두 허용
+                        //문의 권한 설정
+                        .requestMatchers(HttpMethod.GET,"/inquiries/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/inquiries/**").hasAnyRole("USER","INSTRUCTOR","ADMIN")
+                        .requestMatchers(HttpMethod.PUT).hasAnyRole("USER","INSTRUCTOR","ADMIN")
+                        .requestMatchers(HttpMethod.DELETE).hasAnyRole("USER","INSTRUCTOR","ADMIN")
+                        //문의 답변 권한 설정
+                        .requestMatchers(HttpMethod.GET, "/answers/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/answers/**").hasAnyRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/answers/**").hasAnyRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/answers/**").hasAnyRole("ADMIN")
+                        //스터디 테이블 권한 설정
+                        .requestMatchers("/study-tables/**").permitAll()
                         //정적 리소스 허용
                         .requestMatchers("/images/**").permitAll()                                                         // images 폴더에 있는 리소스 허용
                         .requestMatchers("/css/**").permitAll()                                                            // css 폴더에 있는 리소스 허용

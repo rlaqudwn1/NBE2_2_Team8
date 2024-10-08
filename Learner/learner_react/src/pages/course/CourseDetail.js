@@ -282,15 +282,19 @@ const TabMenu = styled.div`
 
 const Tab = styled.button`
     padding: 1rem 2rem;
-    background: none;
+    background-color: ${(props) => (props.active ? "#3cb371" : "#f9f9f9")};  /* 기본 배경색 설정 */
     border: none;
-    border-bottom: ${(props) => (props.active ? "2px solid #3cb371" : "2px solid #ddd")};
+    border-bottom: ${(props) => (props.active ? "2px solid #3cb371" : "2px solid #ddd")};  /* 탭 활성화 시 구분선 */
     font-size: 1rem;
+    color: ${(props) => (props.active ? "#fff" : "#333")};  /* 활성화된 탭의 글자색 */
     cursor: pointer;
     &:hover {
+        background-color: #3cb371;  /* 호버 시 배경색 변경 */
+        color: #fff;  /* 호버 시 글자색 변경 */
         border-bottom: 2px solid #3cb371;
     }
 `;
+
 
 const TabContent = styled.div`
     margin-top: 1rem;
