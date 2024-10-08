@@ -24,6 +24,7 @@ import MyCourses from './pages/MyCourses';
 import InquiryList from "./pages/Inquiry/InquiryList";
 import InquiryDetail from "./pages/Inquiry/InquiryDetail";
 import InquiryRegistration from "./pages/Inquiry/InquiryRegistration";
+import MemberDetail from './pages/MemberDetail';
 
 function App() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -67,6 +68,7 @@ function App() {
                 <Route path="/inquiries" element={<InquiryList/>}/>
                 <Route path="/inquiries/new" element={<InquiryRegistration/>}/>
                 <Route path="/inquiries/:inquiryId" element={<InquiryDetail/>}/>
+                <Route path="/members/:memberId" element={<MemberDetail />} />
             </Routes>
         </Router>
     );

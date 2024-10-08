@@ -20,22 +20,36 @@ const PostCourseInquiry = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        // 로컬 스토리지에서 memberId 가져오기
+        const memberId = localStorage.getItem("memberId");
+
+        if (!memberId) {
+            console.error("로그인된 사용자의 memberId를 찾을 수 없습니다.");
+            alert("로그인이 필요합니다. 로그인 후 다시 시도해 주세요.");
+            return;
+        }
+
         // POST 요청으로 문의 데이터를 서버에 전송
-        axios.post("http://localhost:8080/api/v1/course-inquiry", {
-            courseId: courseId,
-            inquiryTitle: title,
-            inquiryContent: content,
-            inquiryStatus: "PENDING"
-        })
+        axios.post(`http://localhost:8080/course/${courseId}/course-inquiry`, {
+            courseId: courseId,  // 혹은 courseId만 전달되었는지 확인
+            memberId: memberId,  // 로컬 스토리지에서 가져온 memberId 추가
+            inquiryTitle: title,  // 제목이 비어있거나 null이 아닌지 확인
+            inquiryContent: content,  // 내용이 비어있지 않은지 확인
+            inquiryStatus: "PENDING"  // 상태가 올바르게 설정되었는지 확인
+            }, { withCredentials: true })
             .then((response) => {
                 console.log("문의 등록 성공:", response.data);
-                // 문의 등록 후 문의 목록 페이지로 이동
                 navigate(`/courses/${courseId}`);
+
             })
             .catch((error) => {
                 console.error("문의 등록 실패:", error);
             });
     };
+
+
+
 
     return (
         <FormContainer>
