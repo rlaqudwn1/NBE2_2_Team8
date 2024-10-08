@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Header from "./components/Header";
 import Courses from "./pages/Courses";
-import PostCourse from "./pages/PostCourse";
-import PutCourse from "./pages/PutCourse";
 import SignUp from "./pages/SignUp";
 import LoginModal from "./components/LoginModal";
 import PostCourseInquiry from "./pages/PostCourseInquiry"
@@ -45,8 +43,6 @@ function App() {
             <Routes>
                 <Route path="/" element={<Navigate to="/courses" />} />
                 <Route path="/courses" element={<Courses />} />
-                <Route path="/post-course" element={<PostCourse />} />
-                <Route path="/put-course/:courseId" element={<PutCourse />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/courses" element={<Courses />} /> {/* 수정된 경로 */}
                 <Route path="/courses/:courseId/post" element={<PostCourseInquiry />} />

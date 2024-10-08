@@ -22,7 +22,7 @@ export default function CourseNews() {
     const fetchInstructorName = async () => {
         try {
             const response = await fetch(`http://localhost:8080/course/${courseId}/member-nickname`, {
-                credentials: 'include',
+                withCredentials: true,
             });
 
             if (!response.ok) {
@@ -53,7 +53,9 @@ export default function CourseNews() {
                 const email = decodedToken.mid;
                 // console.log("디코딩된 토큰:", decodedToken);
 
-                const response = await fetch(`http://localhost:8080/member/nickname?email=${email}`);
+                const response = await fetch(`http://localhost:8080/member/nickname?email=${email}`, {
+                    withCredentials: true,
+                });
                 if (!response.ok) {
                     throw new Error("닉네임을 가져오는 데 실패했습니다.");
                 }
@@ -69,7 +71,7 @@ export default function CourseNews() {
     const fetchNewsData = async () => {
         try {
             const res = await fetch(`http://localhost:8080/course/${courseId}/news/${newsId}`, {
-                credentials: 'include',
+                withCredentials: true,
             });
             if (!res.ok) throw new Error('Failed to fetch news');
             const data = await res.json();
@@ -105,7 +107,7 @@ export default function CourseNews() {
 
             const likeRes = await fetch(`http://localhost:8080/course/${courseId}/news/${newsId}/like`, {
                 method: method,
-                credentials: 'include',
+                withCredentials: true,
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -136,7 +138,7 @@ export default function CourseNews() {
 
         fetch(`http://localhost:8080/course/${courseId}/news/${newsId}`, {
             method: 'DELETE',
-            credentials: 'include',
+            withCredentials: true,
         })
             .then(res => {
                 if (!res.ok) throw new Error('Failed to delete news');
@@ -156,8 +158,8 @@ export default function CourseNews() {
         //     instructorName
         // });
 
-        return (userRole === 'ROLE_INSTRUCTOR' && userName === instructorName) ||
-            userRole === 'ROLE_ADMIN';
+        return (userRole === 'INSTRUCTOR' && userName === instructorName) ||
+            userRole === 'ADMIN';
     };
 
     const handleUpdateNews = () => {

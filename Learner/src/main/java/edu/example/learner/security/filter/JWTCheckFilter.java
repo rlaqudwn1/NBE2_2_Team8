@@ -117,7 +117,7 @@ public class JWTCheckFilter extends OncePerRequestFilter {
 
     private boolean shouldFilterRequest(String path, String method, String requestURI) {
         boolean isGetRequest = method.equals("GET");
-        boolean isPostPutDeleteRequest = method.equals("POST") || method.equals("PUT") || method.equals("DELETE");
+        boolean isPostPutDeleteRequest = method.equals("POST") || method.equals("PUT") || method.equals("DELETE") || method.equals("PATCH");
 
         log.info("path : " + path);
 
@@ -135,7 +135,7 @@ public class JWTCheckFilter extends OncePerRequestFilter {
                 return true; // 모든 요청에 대해 필터 적용
             case "/news":
                 return isPostPutDeleteRequest;
-            case "/likes":
+            case "/like":
                 return true; // 모든 요청에 대해 필터 적용
             case "/course-inquiry":
                 return isPostPutDeleteRequest;

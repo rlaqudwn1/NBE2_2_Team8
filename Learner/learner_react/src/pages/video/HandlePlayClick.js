@@ -8,18 +8,19 @@ const extractVideoId = (url) => {
 
 export const handlePlayClick = async (courseId, video, navigate, setError) => {
     try {
-        // 실제 로그인된 사용자의 ID 가져오기
         const memberId = localStorage.getItem('memberId');
         const response = await axios.get(`http://localhost:8080/course/${courseId}/purchase?memberId=${memberId}`);
 
         if (response.data) {
-            // 구매한 경우 - 비디오 재생 페이지로 이동
             const youtubeId = extractVideoId(video.url);
             navigate(`/video/${video.video_Id}/play`, {
-                state: { videoEntityId: video.video_Id, youtubeId: youtubeId }
+                state: {
+                    videoEntityId: video.video_Id,
+                    youtubeId: youtubeId,
+                    courseId: courseId  // courseId를 state에 추가
+                }
             });
         } else {
-            // 구매하지 않은 경우 - 경고창을 띄우고 주문 페이지로 이동
             window.alert("이 강의를 구매하지 않았습니다. 주문 페이지로 이동합니다.");
             navigate('/orders');
         }

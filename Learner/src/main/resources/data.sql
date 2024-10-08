@@ -85,3 +85,27 @@ VALUES (4, 0, 0, 2, NOW(), '오픈기념 33% 할인 이벤트입니다.', '강�
 
 -- 초기 수강 구매 목록 데이터 1개 삽입
 INSERT IGNORE INTO member_course (member_course_id, member_id, course_id, purchase_date) VALUES (1, 2, 1, NOW());
+
+
+-- 초기 강의 문의 데이터
+INSERT IGNORE INTO course_inquiry(inquiry_id, course_id, member_id ,created_date ,inquiry_title, inquiry_content, inquiry_status)
+VALUES(1, 1, 2, NOW(),'JAVA 설치 오류 문의합니다.', '설치에 대한 강의를 따로 만들어주세요.', 'PENDING');
+
+INSERT IGNORE INTO course_inquiry(inquiry_id, course_id, member_id ,created_date ,inquiry_title, inquiry_content, inquiry_status)
+VALUES(2, 1, 2, NOW(), '동영상 목소리가 너무 작습니다.', '목소리를 더 크게 내주세요.', 'PENDING');
+
+INSERT IGNORE INTO course_inquiry(inquiry_id, course_id, member_id ,created_date ,inquiry_title, inquiry_content, inquiry_status)
+VALUES(3, 2, 2, NOW(), '강의가 어려워요', '자세한 설명 부탁드립니다.', 'PENDING');
+
+-- 초기 강의 문의 답변 데이터
+INSERT IGNORE INTO course_answer(answer_id, inquiry_id, member_id, answer_content, answer_create_date)
+VALUES(1, 1, 3, '추후 자세한 설치 강의 올리도록 하겠습니다.',NOW());
+
+INSERT IGNORE INTO course_answer(answer_id, inquiry_id, member_id, answer_content, answer_create_date)
+VALUES(2, 2, 3, '강의 소리를 더 크게 만들어서 재업로드 하겠습니다.',NOW());
+
+INSERT IGNORE INTO course_answer(answer_id, inquiry_id, member_id, answer_content, answer_create_date)
+VALUES(3, 3, 3, '어느 부분의 설명이 더 필요하실까요?',NOW());
+
+INSERT IGNORE INTO course_answer(answer_id, inquiry_id, member_id, answer_content, answer_create_date)
+VALUES(4, 3, 2, '스프링 빈에 대해서 더 설명해주세요.',NOW());

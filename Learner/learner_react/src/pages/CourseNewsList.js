@@ -21,7 +21,7 @@ const CourseNewsList = ({ courseId }) => {
     const fetchInstructorName = async () => {
         try {
             const response = await fetch(`http://localhost:8080/course/${courseId}/member-nickname`, {
-                credentials: 'include',
+                withCredentials: true,
             });
 
             if (!response.ok) {
@@ -50,7 +50,9 @@ const CourseNewsList = ({ courseId }) => {
                 setUserRole(decodedToken.role);
                 const email = decodedToken.mid;
 
-                const response = await fetch(`http://localhost:8080/member/nickname?email=${email}`);
+                const response = await fetch(`http://localhost:8080/member/nickname?email=${email}`, {
+                    withCredentials: true,
+                });
                 if (!response.ok) {
                     throw new Error("닉네임을 가져오는 데 실패했습니다.");
                 }
@@ -69,15 +71,15 @@ const CourseNewsList = ({ courseId }) => {
         //     userName,
         //     instructorName
         // });
-
-        return (userRole === 'ROLE_INSTRUCTOR' && userName === instructorName) ||
-            userRole === 'ROLE_ADMIN';
+        // console.log("User role:", userRole);
+        return (userRole === 'INSTRUCTOR' && userName === instructorName) ||
+            userRole === 'ADMIN';
     };
 
 
     const fetchNews = (page) => {
         fetch(`http://localhost:8080/course/${courseId}/news?page=${page}&size=${newsPerPage}`, {
-            credentials: 'include',
+            withCredentials: true,
         })
             .then(res => res.json())
             .then(data => {
