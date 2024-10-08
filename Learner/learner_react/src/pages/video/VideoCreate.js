@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Video_Url = "http://localhost:8080/video";
+const API_KEY = "AIzaSyDoEwQOJ6Igsm9dCnk1b1y1sqzG3qdoEw0"; // 환경 변수로 관리하는 것이 좋습니다.
 
 const AddVideo = ({ courseId }) => {
     const [title, setTitle] = useState("");
@@ -20,7 +21,7 @@ const AddVideo = ({ courseId }) => {
                 title,
                 url,
                 description,
-                course_Id: courseId,
+                course_Id: courseId, // 코스 ID 추가
                 totalVideoDuration,
                 currentVideoTime
             });
@@ -28,6 +29,30 @@ const AddVideo = ({ courseId }) => {
         } catch (error) {
             console.error("비디오 추가 중 오류 발생:", error);
         }
+    };
+
+    const fetchVideoDuration = async (youtubeUrl) => {
+        const videoId = youtubeUrl.split("v=")[1]?.split("&")[0]; // URL에서 비디오 ID 추출
+        if (videoId) {
+            const url = `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${API_KEY}&part=contentDetails`;
+            try {
+                const response = await axios.get(url);
+                const duration = response.data.items[0].contentDetails.duration;
+                const seconds = convertISO8601ToSeconds(duration);
+                setTotalVideoDuration(seconds);
+            } catch (error) {
+                console.error("비디오 길이 가져오기 오류:", error);
+            }
+        }
+    };
+
+    const convertISO8601ToSeconds = (duration) => {
+        const regex = /PT(\d+H)?(\d+M)?(\d+S)?/;
+        const matches = regex.exec(duration);
+        const hours = parseInt(matches[1]) || 0;
+        const minutes = parseInt(matches[2]) || 0;
+        const seconds = parseInt(matches[3]) || 0;
+        return hours * 3600 + minutes * 60 + seconds;
     };
 
     return (
@@ -40,7 +65,15 @@ const AddVideo = ({ courseId }) => {
                 </Label>
                 <Label>
                     URL:
-                    <Input type="text" value={url} onChange={(e) => setUrl(e.target.value)} required />
+                    <Input
+                        type="text"
+                        value={url}
+                        onChange={(e) => {
+                            setUrl(e.target.value);
+                            fetchVideoDuration(e.target.value); // URL 변경 시 비디오 길이 가져오기
+                        }}
+                        required
+                    />
                 </Label>
                 <Label>
                     설명:

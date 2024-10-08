@@ -45,11 +45,11 @@ public class VideoDTO {
         this.createdAt = video.getCreatedAt();
         this.updatedAt = video.getUpdatedAt();
     }
-    public Video toEntity() {
+    public Video toEntity(Course course) {
         return Video.builder()
                 .video_Id(this.video_Id)
                 .title(this.title)
-                .course(Course.builder().courseId(this.course_Id).build())
+                .course(course) // 이미 저장된 Course 객체를 전달
                 .currentVideoTime(this.currentVideoTime)
                 .url(this.url)
                 .totalVideoDuration(this.totalVideoDuration)
