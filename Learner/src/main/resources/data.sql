@@ -109,3 +109,29 @@ VALUES(3, 3, 3, '어느 부분의 설명이 더 필요하실까요?',NOW());
 
 INSERT IGNORE INTO course_answer(answer_id, inquiry_id, member_id, answer_content, answer_create_date)
 VALUES(4, 3, 2, '스프링 빈에 대해서 더 설명해주세요.',NOW());
+
+-- 초기 문의 데이터
+INSERT IGNORE INTO inquiry(inquiry_id, inquiry_content, inquiry_create_date, inquiry_status, inquiry_title,
+                           inquiry_update_date, member_id)
+VALUES (1, CONCAT('러너 서비스 이용 중 오류가 발생했어요.', ' 로그인, 강의 수강 등 서비스 이용이 불가능합니다.'), NOW(),
+        'CONFIRMING', '서비스 이용 오류', NOW(), 2);
+INSERT IGNORE INTO inquiry(inquiry_id, inquiry_content, inquiry_create_date, inquiry_status, inquiry_title,
+                           inquiry_update_date, member_id)
+VALUES (2, CONCAT('구매했던 강의가 전부 사라졌어요.', ' 뭐가 문제일까요?'), NOW(),
+        'ANSWERED', '강의 구매 관련 문의', NOW(), 2);
+INSERT IGNORE INTO inquiry(inquiry_id, inquiry_content, inquiry_create_date, inquiry_status, inquiry_title,
+                           inquiry_update_date, member_id)
+VALUES (3, CONCAT('비밀번호를 찾고 싶어요.'), NOW(),
+        'RESOLVED', '계정 문의', NOW(), 2);
+INSERT IGNORE INTO inquiry(inquiry_id, inquiry_content, inquiry_create_date, inquiry_status, inquiry_title,
+                           inquiry_update_date, member_id)
+VALUES (4, CONCAT('회원 탈퇴하고 싶습니다.', ' 어떻게 해야 하나요?'), NOW(),
+        'CONFIRMING', '회원 탈퇴 문의', NOW(), 1);
+
+-- 초기 문의 답변 데이터
+INSERT IGNORE INTO answer(answer_id, answer_content, answer_create_date, inquiry_id)
+VALUES (1, CONCAT('잠깐! 지금 로그인하신 계정으로 구매하신 것이 맞으신가요?', ' 러너는 여러 개의 계정을 동시에 사용할 수 있어요. 소유하신 다른 계정이 있다면 확인 부탁드려요.'), NOW(),
+        2);
+INSERT IGNORE INTO answer(answer_id, answer_content, answer_create_date, inquiry_id)
+VALUES (2, CONCAT('로그인 화면에서 ''비밀번호 찾기''를 클릭해주세요.', ' 사용 중인 계정을 입력하면 이메일을 통해 비밀번호 변경 링크를 보내드려요.'), NOW(),
+        3);

@@ -5,7 +5,7 @@ import './Style/InquiryList.css';
 
 const InquiryListPage = () => {
     const [inquiries, setInquiries] = useState([]);
-    const [sortBy, setSortBy] = useState('latest');
+    const [sortBy, setSortBy] = useState('inquiryId');
     const [filterStatus, setFilterStatus] = useState('ALL');
     const [memberId, setMemberId] = useState(null);
     const [isMyInquiries, setIsMyInquiries] = useState(false); // 내 문의 모아보기 상태
@@ -69,8 +69,8 @@ const InquiryListPage = () => {
     const sortedInquiries = filteredInquiries.sort((a, b) => {
         if (sortBy === 'status') {
             return a.inquiryStatus.localeCompare(b.inquiryStatus);
-        } else if (sortBy === 'latest') {
-            return new Date(b.inquiryCreateDate) - new Date(a.inquiryCreateDate);
+        } else if (sortBy === 'inquiryId') {
+            return b.inquiryId - a.inquiryId; // 내림차순 정렬
         }
         return 0;
     });
