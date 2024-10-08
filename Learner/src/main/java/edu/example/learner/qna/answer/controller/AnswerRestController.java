@@ -3,6 +3,7 @@ package edu.example.learner.qna.answer.controller;
 import edu.example.learner.qna.answer.dto.AnswerDTO;
 import edu.example.learner.qna.answer.service.AnswerService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -13,12 +14,13 @@ import java.util.Map;
 @RestController
 @RequestMapping("/answers")
 @RequiredArgsConstructor
+@Log4j2
 public class AnswerRestController {
     private final AnswerService answerService;
 
-    @GetMapping("/{answerId}")
-    public ResponseEntity<AnswerDTO> read(@PathVariable("answerId") Long answerId) {
-        return ResponseEntity.ok(answerService.read(answerId));
+    @GetMapping("/{inquiryId}")
+    public ResponseEntity<AnswerDTO> read(@PathVariable("inquiryId") Long inquiryId) {
+        return ResponseEntity.ok(answerService.read(inquiryId));
     }
 
     @GetMapping
@@ -37,9 +39,9 @@ public class AnswerRestController {
         return ResponseEntity.ok(answerService.update(answerDTO));
     }
 
-    @DeleteMapping("/{answerId}")
-    public ResponseEntity<Map<String, String>> delete(@PathVariable("answerId") Long answerId) {
-        answerService.delete(answerId);
+    @DeleteMapping("/{inquiryId}")
+    public ResponseEntity<Map<String, String>> delete(@PathVariable("inquiryId") Long inquiryId) {
+        answerService.deleteByInquiryId(inquiryId);
         return ResponseEntity.ok(Map.of("result", "success"));
     }
 }

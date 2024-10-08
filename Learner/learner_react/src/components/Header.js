@@ -51,6 +51,7 @@ const Header = ({ openModal }) => {
             <RightSection>
                 {isLoggedIn ? (
                     <>
+                        <NavItem onClick={() => navigate('/inquiries')}>문의</NavItem>
                         <NavItem onClick={() => setIsMenuOpen(!isMenuOpen)}>마이페이지</NavItem>
                         {isMenuOpen && (
                             <SubMenu>

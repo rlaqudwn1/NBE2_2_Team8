@@ -27,7 +27,7 @@ public class Answer {
     private LocalDateTime answerCreateDate;
 
     @OneToOne
-    @JoinColumn(name = "inquiry_id")
+    @JoinColumn(name = "inquiry_id", nullable = false)
     private Inquiry inquiry;
 
     public void changeAnswerContent(String answerContent) {

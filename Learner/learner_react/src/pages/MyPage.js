@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import WeeklyStudyTable from "../components/study-table/WeeklyStudyTable";
+import YearlyStudyTable from "../components/study-table/YearlyStudyTable";
 
 const MyPage = () => {
     const [userInfo, setUserInfo] = useState(null);
@@ -188,6 +190,10 @@ const MyPage = () => {
                     <AboutTitle>자기소개</AboutTitle>
                     <AboutContent>{userInfo.introduction || "자기소개가 없습니다."}</AboutContent>
                 </AboutSection>
+                <TableContainer>
+                    <WeeklyStudyTable />
+                    <YearlyStudyTable />
+                </TableContainer>
             </UserInfoSection>
             {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>} {/* 오류 메시지 표시 */}
             <ButtonContainer>
@@ -355,5 +361,13 @@ const ErrorMessage = styled.div`
 const LoadingMessage = styled.div`
     font-size: 1.5rem;
     color: #3cb371; // 로딩 메시지 색상
+    margin-top: 2rem;
+`;
+
+const TableContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 가로 중앙 정렬 */
+    justify-content: center; /* 세로 중앙 정렬 */
     margin-top: 2rem;
 `;

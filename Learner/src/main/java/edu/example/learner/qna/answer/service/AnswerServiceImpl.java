@@ -22,8 +22,8 @@ public class AnswerServiceImpl implements AnswerService {
     private final InquiryRepository inquiryRepository;
 
     @Override
-    public AnswerDTO read(Long answerId) {
-        return new AnswerDTO(answerRepository.findById(answerId).orElseThrow(LearnerException.NOT_FOUND_EXCEPTION::getTaskException));
+    public AnswerDTO read(Long inquiryId) {
+        return new AnswerDTO(answerRepository.findByInquiryId(inquiryId).orElseThrow(LearnerException.NOT_FOUND_EXCEPTION::getTaskException));
     }
 
     @Override
@@ -56,9 +56,20 @@ public class AnswerServiceImpl implements AnswerService {
 
     @Override
     public void delete(Long answerId) {
-        answerRepository.findById(answerId).orElseThrow();
+        answerRepository.findById(answerId).orElseThrow(LearnerException.NOT_FOUND_EXCEPTION::getTaskException);
         try {
             answerRepository.deleteById(answerId);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            throw LearnerException.NOT_REMOVED_EXCEPTION.getTaskException();
+        }
+    }
+
+    @Override
+    public void deleteByInquiryId(Long inquiryId) {
+        answerRepository.findByInquiryId(inquiryId).orElseThrow(LearnerException.NOT_FOUND_EXCEPTION::getTaskException);
+        try {
+            answerRepository.deleteByInquiryId(inquiryId);
         } catch (Exception e) {
             log.error(e.getMessage());
             throw LearnerException.NOT_REMOVED_EXCEPTION.getTaskException();

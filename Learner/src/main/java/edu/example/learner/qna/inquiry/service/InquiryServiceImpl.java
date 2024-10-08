@@ -1,5 +1,6 @@
 package edu.example.learner.qna.inquiry.service;
 
+import edu.example.learner.qna.inquiry.entity.InquiryStatus;
 import edu.example.learner.qna.inquiry.repository.InquiryRepository;
 import edu.example.learner.member.exception.LearnerException;
 import edu.example.learner.qna.inquiry.dto.InquiryDTO;
@@ -25,6 +26,11 @@ public class InquiryServiceImpl implements InquiryService {
     }
 
     @Override
+    public List<InquiryDTO> readByMemberId(Long memberId) {
+        return inquiryRepository.findByMemberId(memberId).stream().map(InquiryDTO::new).collect(Collectors.toList());
+    }
+
+    @Override
     public List<InquiryDTO> readAll() {
         return inquiryRepository.findAll().stream().map(InquiryDTO::new).collect(Collectors.toList());
     }
@@ -46,7 +52,7 @@ public class InquiryServiceImpl implements InquiryService {
         try {
             inquiry.changeInquiryTitle(inquiryDTO.getInquiryTitle());
             inquiry.changeInquiryContent(inquiryDTO.getInquiryContent());
-            inquiry.changeInquiryStatus(inquiryDTO.getInquiryStatus());
+            inquiry.changeInquiryStatus(InquiryStatus.valueOf(inquiryDTO.getInquiryStatus()));
             return new InquiryDTO(inquiry);
         } catch (Exception e) {
             log.error(e);

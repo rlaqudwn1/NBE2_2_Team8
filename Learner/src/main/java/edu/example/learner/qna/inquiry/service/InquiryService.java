@@ -7,6 +7,8 @@ import java.util.List;
 public interface InquiryService {
     InquiryDTO read(Long inquiryId);
 
+    List<InquiryDTO> readByMemberId(Long memberId);
+
     List<InquiryDTO> readAll();
 
     InquiryDTO register(InquiryDTO inquiryDTO);

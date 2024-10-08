@@ -14,4 +14,6 @@ public interface AnswerService {
     AnswerDTO update(AnswerDTO answerDTO);
 
     void delete(Long answerId);
+
+    void deleteByInquiryId(Long inquiryId);
 }

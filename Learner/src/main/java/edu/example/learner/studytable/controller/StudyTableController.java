@@ -3,6 +3,7 @@ package edu.example.learner.studytable.controller;
 import edu.example.learner.studytable.dto.StudyTableDTO;
 import edu.example.learner.studytable.service.StudyTableService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -18,28 +19,21 @@ public class StudyTableController {
     private final StudyTableService studyTableService;
 
     @GetMapping("/{memberId}/weekly-summary")
-    public ResponseEntity<?> readWeeklySummary(@PathVariable("memberId") Long memberId) {
+    public ResponseEntity<?> readWeeklySummaryByDate(@PathVariable("memberId") Long memberId, @RequestParam("date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         Map<String, Object> response = new HashMap<>();
-        response.put("weeklyStudyTime", studyTableService.getWeeklyStudyTime(memberId, LocalDate.now()));
-        response.put("weeklyCompleted", studyTableService.getWeeklyCompleted(memberId, LocalDate.now()));
-        response.put("weeklySummary", studyTableService.getWeeklySummary(memberId, LocalDate.now()));
+        response.put("weeklyStudyTime", studyTableService.getWeeklyStudyTime(memberId, date));
+        response.put("weeklyCompleted", studyTableService.getWeeklyCompleted(memberId, date));
+        response.put("weeklySummary", studyTableService.getWeeklySummary(memberId, date));
         return ResponseEntity.ok(response);
     }
 
     @GetMapping("/{memberId}/yearly-summary")
-    public ResponseEntity<?> readYearlySummary(@PathVariable("memberId") Long memberId) {
+    public ResponseEntity<?> readYearlySummary(@PathVariable("memberId") Long memberId, @RequestParam("year") int year) {
         Map<String, Object> response = new HashMap<>();
-        response.put("yearlyCompleted", studyTableService.getYearlyCompleted(memberId, LocalDate.now().getYear()));
-        response.put("yearlyStudyTime", studyTableService.getYearlyStudyTime(memberId, LocalDate.now().getYear()));
-        response.put("yearlySummary", studyTableService.getYearlySummary(memberId, LocalDate.now().getYear()));
+        response.put("yearlyCompleted", studyTableService.getYearlyCompleted(memberId, year));
+        response.put("yearlyStudyTime", studyTableService.getYearlyStudyTime(memberId, year));
+        response.put("yearlySummary", studyTableService.getYearlySummary(memberId, year));
         return ResponseEntity.ok(response);
-    }
-
-    @PostMapping("/{memberId}/initialize/{date}")
-    public ResponseEntity<StudyTableDTO> initializeStudyTable(@PathVariable("memberId") Long memberId, @PathVariable("date") String date) {
-        LocalDate studyDate = LocalDate.parse(date); // YYYY-MM-DD 형식
-        StudyTableDTO defaultStudyTable = StudyTableDTO.builder().studyDate(studyDate).studyTime(0).completed(0).memberId(memberId).build();
-        return ResponseEntity.ok(studyTableService.register(defaultStudyTable));
     }
 
     @PostMapping

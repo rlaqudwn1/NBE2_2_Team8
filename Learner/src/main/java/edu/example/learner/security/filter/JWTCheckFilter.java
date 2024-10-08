@@ -12,7 +12,6 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
@@ -29,78 +28,125 @@ public class JWTCheckFilter extends OncePerRequestFilter {
         log.info("--- doFilterInternal() ");
         log.info("--- requestURI : " + request.getRequestURI());
 
-        // 필터링 필요 도메인
-        String[] doFilterPath = {"/mypage"}; // 배열에 모든 경로 추가
+        // 필터링할 경로 설정
+        String[] doFilterPath = {"/course", "/members", "/order", "/reviews", "/video", "/news", "/like", "/course-inquiry", "/inquiries", "/answers", "study-table"};
         boolean doFilter = false;
 
-        // doFilterPath 배열과 비교
+        // 요청 URI 및 HTTP 메소드 확인
+        String requestURI = request.getRequestURI();
+        String method = request.getMethod();
+        log.info("method : " + method);
+        log.info("requestURI : " + requestURI);
+
+        // 필터링 로직
         for (String path : doFilterPath) {
-            if (request.getRequestURI().startsWith(path)) { // startsWith 사용
-                log.info("--- JWT verification for path: " + request.getRequestURI());
-                doFilter = true;
+            if (requestURI.startsWith(path)) {
+                log.info("--- JWT verification for path: " + requestURI);
+
+                // 필터 적용 조건 메소드 호출
+                if (shouldFilterRequest(path, method, requestURI)) {
+                    doFilter = true;
+                    break; // 조건에 맞으면 더 이상 확인하지 않음
+                }
             }
         }
+        log.info("doFilter : " + doFilter);
 
-        if(!doFilter){
-            filterChain.doFilter(request, response); // 다음 필터로 요청 전달
+        // 필터를 적용하지 않는 경우, 다음 필터로 요청 전달
+        if (!doFilter) {
+            filterChain.doFilter(request, response);
             return;
         }
 
-        String authrization = null;
+        // Authorization 쿠키에서 토큰 추출
+        String authorization = null;
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {
+                log.info("cookie : " + cookie.getName());
                 if (cookie.getName().equals("Authorization")) {
-                    authrization = cookie.getValue();
+                    authorization = cookie.getValue();
                 }
             }
         } else {
             log.info("--- No cookies found");
         }
 
-        log.info("--- authrization : " + authrization);
+        log.info("--- authorization : " + authorization);
 
-
-        if( authrization == null) {
-            handleException(response,
-                    new Exception("ACCESS TOKEN NOT FOUND"));
+        if (authorization == null) {
+            handleException(response, new Exception("ACCESS TOKEN NOT FOUND"));
             return;
         }
 
-
-        //토큰 유효성 검증 --------------------------------------
-        String accessToken = authrization;
+        // 토큰 유효성 검증
+        String accessToken = authorization;
 
         try {
             Map<String, Object> claims = jwtUtil.validateToken(accessToken);
             log.info("--- 토큰 유효성 검증 완료 ---");
 
-            //SecurityContext 처리 -----------------------------------------
+            // SecurityContext 처리
             String mid = claims.get("mid").toString();
-            String role = claims.get("role").toString(); //단일 역할 처리
+            String role = claims.get("role").toString(); // 단일 역할 처리
 
-            //토큰을 이용하여 인증된 정보 저장
+            // 토큰을 이용하여 인증된 정보 저장
             UsernamePasswordAuthenticationToken authToken
-                    = new UsernamePasswordAuthenticationToken(new CustomUserPrincipal(mid, role), null, List.of(new SimpleGrantedAuthority("ROLE_" + role))
-            );
+                    = new UsernamePasswordAuthenticationToken(new CustomUserPrincipal(mid, role), null, List.of(new SimpleGrantedAuthority("ROLE_" + role)));
 
-            //SecurityContext에 인증/인가 정보 저장
+            log.info("authToken : " + authToken);
+
+            // SecurityContext에 인증/인가 정보 저장
             SecurityContextHolder.getContext().setAuthentication(authToken);
 
+            log.info("SecurityContext에 인증/인가 정보 저장");
+
+            // OAuth2 인증 생략, 다음 필터로 요청 전달
             filterChain.doFilter(request, response);
-            //검증 결과 문제가 없는 경우
-            //이 코드가 호출되기 전까지는, 현재 필터에서 JWT를 검증하고 사용자 정보를 설정하는 과정을 수행합니다.
-            //이 코드가 실행되면, JWT 검증을 성공적으로 마친 후, 요청이 다음 필터 또는 해당 컨트롤러로 전달됩니다.
         } catch (Exception e) {
-            handleException(response, e);             //예외가 발생한 경우
+            handleException(response, e); // 예외 발생 시 처리
         }
     }
 
-    public void handleException(HttpServletResponse response, Exception e)
-            throws IOException {
+    public void handleException(HttpServletResponse response, Exception e) throws IOException {
+        log.info("--- handleException ---");
         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
         response.setContentType("application/json");
-        response.getWriter()
-                .println("{\"error\": \"" + e.getMessage() + "\"}");
+        response.getWriter().println("{\"error\": \"" + e.getMessage() + "\"}");
+    }
+
+    private boolean shouldFilterRequest(String path, String method, String requestURI) {
+        boolean isGetRequest = method.equals("GET");
+        boolean isPostPutDeleteRequest = method.equals("POST") || method.equals("PUT") || method.equals("DELETE");
+
+        log.info("path : " + path);
+
+        switch (path) {
+            case "/course":
+                // /course 및 그 하위 경로는 GET 요청에 대해 필터를 적용하지 않음
+                return isPostPutDeleteRequest; // POST, PUT, DELETE 요청에 대해서만 필터 적용
+            case "/members":
+                return requestURI.matches("/members/\\d+(?!/other)(?!/instructor).*") && (isPostPutDeleteRequest || isGetRequest);
+            case "/reviews":
+                return isPostPutDeleteRequest;
+            case "/order":
+                return true; // 모든 요청에 대해 필터 적용
+            case "/video":
+                return true; // 모든 요청에 대해 필터 적용
+            case "/news":
+                return isPostPutDeleteRequest;
+            case "/likes":
+                return true; // 모든 요청에 대해 필터 적용
+            case "/course-inquiry":
+                return isPostPutDeleteRequest;
+            case "/inquiries":
+                return isPostPutDeleteRequest;
+            case "/answers":
+                return true;
+            case "/study-table":
+                return isPostPutDeleteRequest;
+            default:
+                return false; // 기본적으로 필터 적용 안 함
+        }
     }
 }

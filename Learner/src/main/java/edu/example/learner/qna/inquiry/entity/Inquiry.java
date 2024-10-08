@@ -1,6 +1,7 @@
 package edu.example.learner.qna.inquiry.entity;
 
 import edu.example.learner.member.entity.Member;
+import edu.example.learner.qna.answer.entity.Answer;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -31,12 +32,16 @@ public class Inquiry {
 
     @LastModifiedDate
     private LocalDateTime inquiryUpdateDate;
-    
-    private String inquiryStatus;
+
+    @Enumerated(EnumType.STRING)
+    private InquiryStatus inquiryStatus;
 
     @ManyToOne
     @JoinColumn(name = "member_id")
     private Member member;
+
+    @OneToOne(mappedBy = "inquiry", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Answer answer;
 
     public void changeInquiryTitle(String inquiryTitle) {
         this.inquiryTitle = inquiryTitle;
@@ -46,7 +51,7 @@ public class Inquiry {
         this.inquiryContent = inquiryContent;
     }
 
-    public void changeInquiryStatus(String inquiryStatus) {
+    public void changeInquiryStatus(InquiryStatus inquiryStatus) {
         this.inquiryStatus = inquiryStatus;
     }
 }

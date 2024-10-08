@@ -1,0 +1,77 @@
+.inquiry-registration {
+    background-color: #f9f9f9;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #3cb371;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+}
+
+textarea {
+    height: 150px;
+    resize: none;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 10px; /* 버튼 간의 간격 추가 */
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between; /* 버튼을 좌우로 나란히 배치 */
+    width: 100%; /* 버튼 그룹의 너비를 설정 */
+}
+
+button.submit-button {
+    background-color: #4CAF50; /* 녹색 */
+    color: white;
+    flex: 1; /* 버튼이 동일한 비율로 길어짐 */
+    margin-right: 5px; /* 간격 추가 */
+}
+
+button.cancel-button {
+    background-color: #f44336; /* 빨간색 */
+    color: white;
+    flex: 1; /* 버튼이 동일한 비율로 길어짐 */
+    margin-left: 5px; /* 간격 추가 */
+}
+
+button.submit-button:hover {
+    background-color: #45a049; /* 어두운 녹색 */
+}
+
+button.cancel-button:hover {
+    background-color: #d32f2f; /* 어두운 빨간색 */
+}
