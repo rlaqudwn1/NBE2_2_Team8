@@ -123,9 +123,15 @@ public class ReviewServiceTest {
         void testDelete() {
             //GIVEN
             Long reviewId = 9L;
+            ReviewDTO reviewDTO = ReviewDTO.builder()
+                    .reviewId(reviewId)
+                    .reviewName("new title")
+                    .reviewDetail("new content")
+                    .reviewType(ReviewType.COURSE)
+                    .build();
 
             //WHEN
-            reviewService.deleteReview(reviewId);
+            reviewService.deleteReview(reviewId, reviewDTO);
 
             //THEN
             assertFalse(reviewRepository.existsById(reviewId));

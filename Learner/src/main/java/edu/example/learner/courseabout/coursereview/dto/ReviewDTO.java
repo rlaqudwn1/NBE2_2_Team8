@@ -20,7 +20,6 @@ public class ReviewDTO {
     private String reviewName;
     private String reviewDetail;
     private int rating;
-    private LocalDateTime reviewCreatedDate;
     private LocalDateTime reviewUpdatedDate;
     private ReviewType reviewType;
     private Long writerId;
@@ -33,7 +32,6 @@ public class ReviewDTO {
         this.reviewName = review.getReviewName();
         this.reviewDetail = review.getReviewDetail();
         this.rating = review.getRating();
-        this.reviewCreatedDate = review.getReviewCreatedDate();
         this.reviewUpdatedDate = review.getReviewUpdatedDate();
         this.reviewType = review.getReviewType();
         this.writerId = review.getMember().getMemberId();
@@ -50,7 +48,6 @@ public class ReviewDTO {
                 .reviewName(reviewName)
                 .reviewDetail(reviewDetail)
                 .rating(rating)
-                .reviewCreatedDate(reviewCreatedDate)
                 .reviewUpdatedDate(reviewUpdatedDate)
                 .reviewType(reviewType)
                 .member(member)

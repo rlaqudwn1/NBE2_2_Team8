@@ -49,6 +49,7 @@ public class CourseReviewController {
     public ResponseEntity<Map<String, String>> remove(@PathVariable("reviewId") Long reviewId, @RequestBody ReviewDTO reviewDTO) {
 
         log.info("Delete Review: " + reviewId);
+        log.info(reviewDTO.getWriterId());
 
         reviewService.deleteReview(reviewId, reviewDTO);
         return ResponseEntity.ok(Map.of("result", "success"));

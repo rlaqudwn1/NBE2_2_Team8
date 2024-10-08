@@ -30,7 +30,7 @@ const CourseReviewCreate = () => {
             courseId,
         };
 
-        const token = localStorage.getItem("token"); // 토큰 가져오기
+        const token = localStorage.getItem("Authorization"); // 저장된 키에 따라 변경
 
         // 코스 리뷰 API 엔드포인트
         const endpoint = `http://localhost:8080/course/${courseId}/reviews/create`;

@@ -93,7 +93,7 @@ public class MemberRestController {
     }
 
     //다른 사용자 조회
-    @GetMapping("/{nickname}/other")
+    @GetMapping("/other/{nickname}")
     @Operation(summary = "다른 회원 조회", description = "다른 회원의 공개된 정보를 가져옵니다")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "다른 회원 조회에 성공하였습니다."),
@@ -101,7 +101,7 @@ public class MemberRestController {
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(example = "{\"error\": \"다른 회원 조회에 실패하였습니다.\"}")))
     })
-    public ResponseEntity<MemberDTO> memberRead(@RequestParam String nickname) {
+    public ResponseEntity<MemberDTO> memberRead(@PathVariable String nickname) {
         log.info("--- memberRead()");
         MemberDTO memberDTO = memberService.getMemberInfoNickName(nickname);
         //본인이 아닌 사용자 조회시 개인정보빼고 정보 전달

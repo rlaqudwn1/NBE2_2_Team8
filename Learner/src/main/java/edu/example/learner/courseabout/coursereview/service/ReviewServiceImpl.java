@@ -7,6 +7,7 @@ import edu.example.learner.courseabout.coursereview.entity.Review;
 import edu.example.learner.courseabout.coursereview.entity.ReviewType;
 import edu.example.learner.courseabout.exception.ReviewException;
 import edu.example.learner.courseabout.coursereview.repository.ReviewRepository;
+import edu.example.learner.courseabout.exception.ReviewTaskException;
 import edu.example.learner.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -28,6 +29,11 @@ public class ReviewServiceImpl implements ReviewService {
     public ReviewDTO createReview(ReviewDTO reviewDTO, ReviewType reviewType) {
         try {
             Course course = courseService.read(reviewDTO.getCourseId()).toEntity();
+
+            if (reviewDTO.getWriterId().equals(course.getMember().getMemberId())) {
+                throw ReviewException.INSTRUCTOR_NOT_REGISTERD.get();
+            }
+
             reviewDTO.setWriterName(memberService.getMemberInfo(reviewDTO.getWriterId()).getNickname());
             reviewDTO.setReviewType(reviewType);
 
@@ -112,6 +118,7 @@ public class ReviewServiceImpl implements ReviewService {
                             .reviewDetail(review.getReviewDetail())
                             .rating(review.getRating())
                             .reviewType(review.getReviewType())
+                            .reviewUpdatedDate(review.getReviewUpdatedDate())
                             .writerId(review.getMember().getMemberId())
                             .courseId(courseId)
                             .writerName(review.getMember().getNickname())
@@ -142,6 +149,7 @@ public class ReviewServiceImpl implements ReviewService {
                             .reviewDetail(review.getReviewDetail())
                             .rating(review.getRating())
                             .reviewType(review.getReviewType())
+                            .reviewUpdatedDate(review.getReviewUpdatedDate())
                             .writerId(review.getMember().getMemberId())
                             .courseId(courseId)
                             .nickname(nickname)

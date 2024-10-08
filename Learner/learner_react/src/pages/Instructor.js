@@ -15,8 +15,15 @@ const Instructor = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        const token = localStorage.getItem("Authorization"); // 로컬 스토리지에서 토큰 가져오기
+
         // 강사 정보를 가져오기
-        axios.get(`http://localhost:8080/members/instructor/${nickname}`)
+        axios.get(`http://localhost:8080/members/instructor/${nickname}`, {
+            headers: {
+                Authorization: `Bearer ${token}` // Authorization 헤더에 토큰 추가
+            },
+            credentials: 'include',
+        })
             .then((response) => {
                 setInstructor(response.data);
                 setLoading(false);
@@ -27,7 +34,12 @@ const Instructor = () => {
             });
 
         // 강사 리뷰 목록 가져오기
-        axios.get(`http://localhost:8080/members/instructor/${nickname}/reviews/list`)
+        axios.get(`http://localhost:8080/members/instructor/${nickname}/reviews/list`, {
+            headers: {
+                Authorization: `Bearer ${token}` // 리뷰 목록 가져올 때도 토큰 추가
+            },
+            credentials: 'include',
+        })
             .then((response) => {
                 setReviews(response.data);
             })
@@ -35,6 +47,7 @@ const Instructor = () => {
                 setError("리뷰 목록을 가져오는 데 오류가 발생했습니다.");
             });
     }, [nickname]);
+
 
     if (loading) {
         return <p>로딩 중...</p>;
