@@ -132,11 +132,19 @@ const CloseButton = styled.button`
     position: absolute;
     top: 10px;
     right: 10px;
-    background: none;
+    background: rgba(0, 0, 0, 0.1); // 배경을 약간 어둡게
     border: none;
+    border-radius: 5px; // 둥글게
     font-size: 1.5rem;
     cursor: pointer;
+    padding: 5px; // 여백 추가
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.2); // 호버 효과 추가
+    }
 `;
+
 
 const Logo = styled.h1`
     font-size: 1.8rem;

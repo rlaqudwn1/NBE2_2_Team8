@@ -7,6 +7,7 @@ const Header = ({ openModal }) => {
     const location = useLocation();
     const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태
     const [isMenuOpen, setIsMenuOpen] = useState(false); // 하위 메뉴 상태
+    const [searchId, setSearchId] = useState(""); // 검색어 상태 추가
 
     useEffect(() => {
         const cookies = document.cookie.split('; ').find(row => row.startsWith('Authorization='));
@@ -26,6 +27,12 @@ const Header = ({ openModal }) => {
         navigate('/courses');
     };
 
+    const handleSearch = () => {
+        if (searchId.trim()) {
+            navigate(`/courses?searchId=${encodeURIComponent(searchId)}`);
+        }
+    };
+
     const isCoursesPage = location.pathname === "/courses";
     const isCourseDetailPage = location.pathname.startsWith("/courses/");
 
@@ -33,16 +40,19 @@ const Header = ({ openModal }) => {
         <NavBar>
             <LeftSection>
                 {isCourseDetailPage && (
-                    <>
-                        <NavItem>강의</NavItem>
-                        <NavItem>문의</NavItem>
-                        <SearchBar>
-                            <input type="text" placeholder="검색해보세요" />
-                            <button>🔍</button>
-                        </SearchBar>
-                    </>
+                    <SearchBar>
+                        <input
+                            type="text"
+                            placeholder="검색해보세요"
+                            value={searchId}
+                            onChange={(e) => setSearchId(e.target.value)}
+                            onKeyPress={(e) => {
+                                if (e.key === 'Enter') handleSearch(); // Enter 키 감지
+                            }}
+                        />
+                        <button onClick={handleSearch}>🔍</button>
+                    </SearchBar>
                 )}
-
             </LeftSection>
             <LogoWrapper onClick={() => navigate("/courses")}>
                 <Logo>Learner</Logo>
@@ -55,7 +65,7 @@ const Header = ({ openModal }) => {
                         <NavItem onClick={() => setIsMenuOpen(!isMenuOpen)}>마이페이지</NavItem>
                         {isMenuOpen && (
                             <SubMenu>
-                                <SubMenuItem onClick={() => navigate('/내정보')}>내정보</SubMenuItem> {/* 내정보 클릭 시 마이페이지로 이동 */}
+                                <SubMenuItem onClick={() => navigate('/내정보')}>내정보</SubMenuItem>
                                 <SubMenuItem onClick={() => navigate('/courses/list')}>내 학습</SubMenuItem>
                                 <SubMenuItem onClick={() => navigate('/orders')}>장바구니</SubMenuItem>
                                 <SubMenuItem onClick={() => navigate('/edit-profile')}>회원정보 수정</SubMenuItem>
@@ -79,8 +89,8 @@ const Header = ({ openModal }) => {
 
 export default Header;
 
+// 스타일 컴포넌트들 (기존과 동일)
 
-// 스타일 컴포넌트들
 
 const NavBar = styled.nav`
     display: flex;
@@ -91,8 +101,8 @@ const NavBar = styled.nav`
     height: 60px;
     border-bottom: 1px solid #ddd;
     margin: 0 auto;
-    position: relative; /* 메뉴가 페이지 밖으로 나가지 않도록 NavBar에 상대 위치 부여 */
-    overflow: visible; /* NavBar 범위를 넘어가는 내용을 보이게 함 */
+    position: relative;
+    overflow: visible;
 `;
 
 const LeftSection = styled.div`
@@ -106,9 +116,9 @@ const LogoWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute; /* 부모 요소에서 절대 위치 */
-    left: 50%; /* 페이지의 50% 지점에 위치 */
-    transform: translateX(-50%); /* 중앙에 고정시키기 위해 왼쪽으로 50% 이동 */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     cursor: pointer;
 `;
 
@@ -117,7 +127,7 @@ const RightSection = styled.div`
     align-items: center;
     gap: 1rem;
     margin-left: auto;
-    position: relative; /* SubMenu가 RightSection 안에 표시되도록 설정 */
+    position: relative;
 `;
 
 const Logo = styled.h1`
@@ -138,6 +148,7 @@ const StyledButton = styled.button`
     border-radius: 5px;
     padding: 0.5rem 1rem;
     cursor: pointer;
+
     &:hover {
         background-color: white;
         color: #3cb371;
@@ -149,6 +160,7 @@ const NavItem = styled.span`
     padding: 0.5rem 1rem;
     position: relative;
     border-radius: 5px;
+
     &:hover {
         background-color: #3cb371;
         color: white;
@@ -173,6 +185,7 @@ const SubMenu = styled.div`
 
 const SubMenuItem = styled(NavItem)`
     padding: 0.5rem 1rem;
+
     &:hover {
         background-color: #f0f0f0;
     }
@@ -182,13 +195,15 @@ const SearchBar = styled.div`
     display: flex;
     align-items: center;
     margin-left: 1rem;
+
     input {
         padding: 0.5rem;
         border-radius: 20px;
         border: 1px solid #ddd;
-        width: 200px;
+        width: 250px; /* 검색창을 더 키움 */
         margin-right: 0.5rem;
     }
+
     button {
         background: none;
         border: none;

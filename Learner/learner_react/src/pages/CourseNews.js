@@ -15,8 +15,11 @@ export default function CourseNews() {
 
     useEffect(() => {
         checkUserRole();
-        fetchNewsData();
         fetchInstructorName();
+        if (localStorage.getItem('memberId')) {
+            checkLikeStatus(); // 좋아요 여부 체크
+        }
+        fetchNewsData();
     }, [courseId, newsId]);
 
     const fetchInstructorName = async () => {
@@ -64,6 +67,22 @@ export default function CourseNews() {
         }
     };
 
+    const checkLikeStatus = async () => {
+        const memberId = localStorage.getItem('memberId');
+        try {
+            const res = await fetch(`http://localhost:8080/course/${courseId}/news/${newsId}/like?memberId=${memberId}`, {
+                credentials: 'include',
+            });
+
+            if (!res.ok) throw new Error('Failed to fetch like status');
+
+            const data = await res.json();
+            setLiked(data); // 현재 좋아요 상태 설정
+        } catch (err) {
+            console.error("좋아요 상태 확인 실패:", err);
+        }
+    };
+
     const fetchNewsData = async () => {
         try {
             const res = await fetch(`http://localhost:8080/course/${courseId}/news/${newsId}`, {
@@ -72,7 +91,7 @@ export default function CourseNews() {
             if (!res.ok) throw new Error('Failed to fetch news');
             const data = await res.json();
             setNews(data);
-            setLiked(data.liked); // Initialize liked based on fetched news data
+            // 좋아요 여부는 checkLikeStatus에서 설정하므로 여기서 초기화하지 않음
         } catch (err) {
             console.error("새소식 가져오기 실패:", err);
             alert('새소식을 불러오는데 실패했습니다.');
@@ -82,23 +101,20 @@ export default function CourseNews() {
 
     const likeNews = async () => {
         const memberId = localStorage.getItem('memberId');
+
+        // memberId가 없으면 알림 표시하고 함수 종료
+        if (!memberId) {
+            alert('로그인 후 시도해주세요.');
+            return;
+        }
+
         const requestData = {
             memberId: parseInt(memberId),
             newsId: parseInt(newsId)
         };
 
         try {
-            // 현재 좋아요 상태를 반영하기 위해 데이터를 가져옴
-            const res = await fetch(`http://localhost:8080/course/${courseId}/news/${newsId}/like?memberId=${memberId}`, {
-                credentials: 'include',
-            });
-
-            if (!res.ok) throw new Error('Failed to fetch like status');
-
-            const data = await res.json();
-            setLiked(data); // 현재 좋아요 상태 설정
-
-            const method = data ? 'DELETE' : 'PATCH'; // 상태에 따라 메소드 결정
+            const method = liked ? 'DELETE' : 'PATCH'; // 상태에 따라 메소드 결정
 
             // 좋아요 상태 업데이트 요청
             const likeRes = await fetch(`http://localhost:8080/course/${courseId}/news/${newsId}/like`, {
@@ -115,16 +131,17 @@ export default function CourseNews() {
             await likeRes.text();
 
             // 상태를 반전시키고 좋아요 수 업데이트
-            setLiked(!data);
+            setLiked(!liked);
             setNews(prev => ({
                 ...prev,
-                likeCount: data ? prev.likeCount - 1 : prev.likeCount + 1
+                likeCount: liked ? prev.likeCount - 1 : prev.likeCount + 1
             }));
         } catch (err) {
             console.error(`${liked ? '좋아요 취소 실패' : '좋아요 실패'}:`, err);
             alert('좋아요 처리 중 오류가 발생했습니다.');
         }
     };
+
 
     const deleteNews = () => {
         if (!window.confirm('정말로 이 새소식을 삭제하시겠습니까?')) {
@@ -256,45 +273,40 @@ const NewsFooter = styled.div`
 
 const LikeButton = styled.button`
     padding: 8px 16px;
-    background-color: ${props => (props.$liked ? '#ff6b6b' : '#4caf50')};
+    background-color: ${props => (props.$liked ? '#e74c3c' : '#3498db')};
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.2s;
-    font-size: 14px;
+    transition: background-color 0.3s;
 
     &:hover {
-        background-color: ${props => (props.$liked ? '#ff4c4c' : '#45a049')};
+        background-color: ${props => (props.$liked ? '#c0392b' : '#2980b9')};
     }
 `;
 
 const EditButton = styled.button`
     padding: 8px 16px;
-    background-color: #007bff;
+    background-color: #f39c12;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.2s;
-    font-size: 14px;
 
     &:hover {
-        background-color: #0056b3;
+        background-color: #e67e22;
     }
 `;
 
 const DeleteButton = styled.button`
     padding: 8px 16px;
-    background-color: #dc3545;
+    background-color: #e74c3c;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.2s;
-    font-size: 14px;
 
     &:hover {
-        background-color: #c82333;
+        background-color: #c0392b;
     }
 `;

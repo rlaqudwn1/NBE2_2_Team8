@@ -73,7 +73,7 @@ public class SecurityConfig{
                         .requestMatchers(HttpMethod.DELETE, "/course-inquiry/**").hasAnyRole("INSTRUCTOR","ADMIN")        // DELETE 요청 course 권한 설정
                         //리뷰 권한 설정
                         .requestMatchers(HttpMethod.GET,"/reviews/**").permitAll()                                               // GET 요청 course 모두 허용
-                        .requestMatchers(HttpMethod.POST, "/reviews/**").hasAnyRole("USER","INSTRUCTOR","ADMIN")          // POST 요청 reviews 권한 설정
+                        .requestMatchers(HttpMethod.POST, "/course/{courseId}/reviews/create").hasAnyRole("USER","INSTRUCTOR","ADMIN")          // POST 요청 reviews 권한 설정
                         .requestMatchers(HttpMethod.DELETE, "/reviews/**").hasAnyRole("USER","INSTRUCTOR","ADMIN")        // DELETE 요청 reviews 권한 설정
                         .requestMatchers(HttpMethod.PUT, "/reviews/**").hasAnyRole("USER","INSTRUCTOR","ADMIN")           // PUT 요청 reviews 권한 설정
                         //주문 권한 설정

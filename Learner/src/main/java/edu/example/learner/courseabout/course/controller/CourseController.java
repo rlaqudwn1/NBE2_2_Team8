@@ -3,12 +3,14 @@ package edu.example.learner.courseabout.course.controller;
 import edu.example.learner.courseabout.course.dto.CourseDTO;
 import edu.example.learner.courseabout.course.dto.MemberCourseDTO;
 import edu.example.learner.courseabout.course.service.CourseService;
+import edu.example.learner.courseabout.course.service.CourseServiceImpl;
 import edu.example.learner.member.dto.MemberDTO;
 import edu.example.learner.member.service.MemberService;
 import edu.example.learner.courseabout.video.dto.VideoDTO;
 import edu.example.learner.courseabout.video.service.VideoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.Operation;
@@ -27,7 +29,7 @@ import java.util.Map;
 @Tag(name = "강의 관리", description = "강의 CRUD 및 관련 작업을 수행합니다.")
 public class CourseController {
     private final CourseService courseService;
-    private final MemberService memberService;
+    private final CourseServiceImpl courseServiceImpl;
     private final VideoService videoService;
 
     @PostMapping()
@@ -51,18 +53,6 @@ public class CourseController {
         log.info("Reading course {}", courseId);
         CourseDTO courseDTO = courseService.read(courseId);
         return ResponseEntity.ok(courseDTO);
-    }
-
-    @GetMapping("/list/{memberId}")
-    @Operation(summary = "회원 강의 목록 조회", description = "회원 ID로 특정 회원의 강의 목록을 조회합니다.")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "회원의 강의 목록이 성공적으로 조회되었습니다."),
-            @ApiResponse(responseCode = "404", description = "회원 정보를 찾을 수 없습니다.")
-    })
-    public ResponseEntity<List<CourseDTO>> readCourses(@PathVariable Long memberId) {
-        log.info("Reading courses for member {}", memberId);
-        MemberDTO memberInfo = memberService.getMemberInfo(memberId);
-        return ResponseEntity.ok(courseService.getCoursesByNickname(memberInfo.getNickname()));
     }
 
     @GetMapping("/list")
@@ -118,5 +108,17 @@ public class CourseController {
     public ResponseEntity<List<MemberCourseDTO>> readCourseListByMemberId(@PathVariable Long memberId) {
         log.info("Reading course list for member {}", memberId);
         return ResponseEntity.ok(courseService.getMemberCoursesByMemberId(memberId));
+    }
+
+    @GetMapping("/{courseId}/member-nickname")
+    @Operation(summary = "코스의 강사 닉네임 조회", description = "코스의 강사 닉네임을 조회합니다.")
+    public ResponseEntity<String> getCourseInstructorNickname(@PathVariable Long courseId) {
+        String instructorNickname = courseServiceImpl.getInstructorNicknameByCourseId(courseId);
+
+        if (instructorNickname != null) {
+            return ResponseEntity.ok(instructorNickname);  // 닉네임을 성공적으로 반환
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("해당 코스 또는 닉네임을 찾을 수 없습니다.");
+        }
     }
 }

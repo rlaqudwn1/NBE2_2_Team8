@@ -13,9 +13,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.parameters.P;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/members")
@@ -149,5 +152,25 @@ public class MemberRestController {
         log.info("--- myPageRead()");
         log.info(nickname);
         return ResponseEntity.ok(memberService.getInstructorInfo(nickname));
+    }
+
+    //회원 목록 조회
+    @GetMapping("/list")
+    public ResponseEntity <List<MemberDTO>> listMembers() {
+        log.info("--- myPageRead()");
+
+        return ResponseEntity.ok(memberService.getAllMembers());
+    }
+
+    @GetMapping("/nickname")
+    @Operation(summary = "이메일로 닉네임 조회", description = "이메일로 닉네임을 조회합니다.")
+    public ResponseEntity<String> getNickname(@RequestParam String email) {
+        String nickname = memberService.getNicknameByEmail(email);
+
+        if (nickname != null) {
+            return ResponseEntity.ok(nickname);  // 닉네임을 성공적으로 반환
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("닉네임을 찾을 수 없습니다.");
+        }
     }
 }
