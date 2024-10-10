@@ -1,9 +1,6 @@
 package edu.example.learner.advice;
 
-import edu.example.learner.courseabout.exception.HeartNewsAlreadyExistsException;
-import edu.example.learner.courseabout.exception.NotFoundException;
-import edu.example.learner.courseabout.exception.ReviewException;
-import edu.example.learner.courseabout.exception.ReviewTaskException;
+import edu.example.learner.courseabout.exception.*;
 import edu.example.learner.courseabout.order.exception.OrderTaskException;
 import edu.example.learner.member.exception.LoginException;
 import edu.example.learner.member.exception.LoginTaskException;
@@ -77,14 +74,26 @@ public class APIControllerAdvice {
     }
 
     //장바구니 예외처리
-    @ExceptionHandler
+    @ExceptionHandler(OrderTaskException.class)
     public ResponseEntity<Map<String, Object>> handleOrderException(OrderTaskException e){
         log.error("OrderTaskException : ", e);
-        Map<String, Object> map = Map.of("error", e.getMessage());
+        log.error("--- e.getClass().getName() : " + e.getClass().getName());
+        log.error("--- e.getMessage() : " + e.getMessage());
+        Map<String, Object> errMap = Map.of("error", e.getMessage());
 
-        return ResponseEntity.status(e.getCode()).body(map);
+
+        return ResponseEntity.status(e.getCode()).body(errMap);
     }
+    //
+    @ExceptionHandler(CourseTaskException.class)
+    public ResponseEntity<Map<String,Object>> handelCourseException(CourseTaskException e){
+        log.error("CourseTaskException : ", e);
+        log.error("--- e.getClass().getName() : " + e.getClass().getName());
+        log.error("--- e.getMessage() : " + e.getMessage());
+        Map<String, Object> errMap = Map.of("error", e.getMessage());
 
+        return ResponseEntity.status(e.getStatusCode()).body(errMap);
+    }
 
 
     @ExceptionHandler(IllegalArgumentException.class)
