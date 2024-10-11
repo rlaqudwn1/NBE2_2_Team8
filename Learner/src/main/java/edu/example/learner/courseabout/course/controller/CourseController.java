@@ -31,7 +31,6 @@ import java.util.Map;
 @Tag(name = "강의 관리", description = "강의 CRUD 및 관련 작업을 수행합니다.")
 public class CourseController {
     private final CourseService courseService;
-    private final CourseServiceImpl courseServiceImpl;
     private final OrderService orderService;
     private final VideoService videoService;
 
@@ -130,7 +129,7 @@ public class CourseController {
     @GetMapping("/{courseId}/member-nickname")
     @Operation(summary = "코스의 강사 닉네임 조회", description = "코스의 강사 닉네임을 조회합니다.")
     public ResponseEntity<String> getCourseInstructorNickname(@PathVariable Long courseId) {
-        String instructorNickname = courseServiceImpl.getInstructorNicknameByCourseId(courseId);
+        String instructorNickname = courseService.read(courseId).getMemberNickname();
 
         if (instructorNickname != null) {
             return ResponseEntity.ok(instructorNickname);  // 닉네임을 성공적으로 반환

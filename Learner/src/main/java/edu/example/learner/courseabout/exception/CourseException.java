@@ -1,6 +1,5 @@
 package edu.example.learner.courseabout.exception;
 
-import edu.example.learner.member.exception.MemberTaskException;
 import org.springframework.http.HttpStatus;
 
 public enum CourseException {
@@ -19,8 +18,8 @@ public enum CourseException {
         this.status = status;
     }
 
-    public MemberTaskException getMemberTaskException() {
-        return new MemberTaskException(this.message,this.status.value());
+    public CourseTaskException getCourseException() {
+        return new CourseTaskException(this.message,this.status.value());
     }
 
 }

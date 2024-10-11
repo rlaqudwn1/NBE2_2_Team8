@@ -29,8 +29,6 @@ public class Alarm {
     private String alarmContent;
 
     private String alarmTitle;
-
-
     @Enumerated(EnumType.STRING)
     private AlarmType alarmType;
 

@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Table(name = "videos")
 @Setter
 @Getter
-@ToString
+@ToString(exclude = "course")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

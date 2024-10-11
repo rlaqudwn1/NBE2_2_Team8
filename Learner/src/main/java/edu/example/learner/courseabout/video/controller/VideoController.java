@@ -83,9 +83,8 @@ public class VideoController {
     @PutMapping("/{id}")
     @Operation(summary = "비디오 수정", description = "특정 ID의 비디오 정보를 수정합니다.")
     public ResponseEntity<VideoDTO> updateVideo(@Parameter(description = "수정할 비디오 ID") @PathVariable Long id, @Parameter(description = "수정할 비디오 데이터") @RequestBody VideoDTO videoDTO) {
-        return videoService.updateVideo(id, videoDTO)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+        return ResponseEntity.ok(videoService.updateVideo(id, videoDTO));
+
     }
 
     @DeleteMapping("/{id}")

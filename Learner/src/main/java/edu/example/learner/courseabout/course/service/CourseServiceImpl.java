@@ -7,13 +7,7 @@ import edu.example.learner.courseabout.course.entity.CourseAttribute;
 import edu.example.learner.courseabout.course.entity.MemberCourse;
 import edu.example.learner.courseabout.course.repository.CourseRepository;
 import edu.example.learner.courseabout.course.repository.MemberCourseRepository;
-import edu.example.learner.courseabout.courseqna.repository.CourseInquiryRepository;
-import edu.example.learner.courseabout.courseqna.service.CourseInquiryService;
-import edu.example.learner.courseabout.coursereview.repository.ReviewRepository;
 import edu.example.learner.courseabout.exception.CourseException;
-import edu.example.learner.courseabout.exception.CourseInquiryException;
-import edu.example.learner.courseabout.exception.CourseTaskException;
-import edu.example.learner.courseabout.exception.ReviewException;
 import edu.example.learner.member.entity.Member;
 import edu.example.learner.member.exception.MemberException;
 import edu.example.learner.member.repository.MemberRepository;
@@ -61,7 +55,7 @@ public class CourseServiceImpl implements CourseService {
                  throw MemberException.MEMBER_NOT_FOUND.getMemberTaskException();
             }
         }catch (Exception e){
-            throw CourseException.COURSE_ADD_FAILED.getMemberTaskException();
+            throw CourseException.COURSE_ADD_FAILED.getCourseException();
         }
 
         log.info("successfully added course ");
@@ -71,21 +65,30 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public CourseDTO read(Long courseId) {
-        Optional<Course> courseRepositoryById = courseRepository.findById(courseId);
-        if (courseRepositoryById.isPresent()) {
-            return new CourseDTO(courseRepositoryById.get());
+        try {
+            Course course = courseRepository.findById(courseId).orElseThrow(CourseException.COURSE_NOT_FOUND::getCourseException);
+            log.info("course: {}", course);
+            return new CourseDTO(course);
+        }catch (Exception e){
+            log.error("Error adding course: ", e);
+            throw CourseException.COURSE_ADD_FAILED.getCourseException();
         }
-        return null;
     }
 
     @Override
     public List<CourseDTO> readByAttribute(CourseAttribute courseAttribute) {
-        List<Course> courseList = courseRepository.readByCourseAttribute(courseAttribute);
-        List<CourseDTO> courseDTOList = new ArrayList<>();
-        for (Course course : courseList) {
-            courseDTOList.add(new CourseDTO(course));
+        try {
+            List<Course> courseList = courseRepository.readByCourseAttribute(courseAttribute);
+            List<CourseDTO> courseDTOList = new ArrayList<>();
+            for (Course course : courseList) {
+                courseDTOList.add(new CourseDTO(course));
+            }
+            log.info("successfully read course list");
+            return courseDTOList;
+        }catch (Exception e){
+            log.error("Error reading course By Attribute: ", e);
+            throw CourseException.COURSE_NOT_FOUND.getCourseException();
         }
-        return courseDTOList;
     }
 
     @Override
@@ -113,10 +116,10 @@ public class CourseServiceImpl implements CourseService {
                 log.info("저장된 데이터 확인 : " + courseRepository.findById(courseDTO.getCourseId()).get().getCoursePrice());
             } catch (Exception e) {
                 log.error("Error updating course: ", e);
-                throw CourseException.COURSE_NOT_MODIFIED.getMemberTaskException();
+                throw CourseException.COURSE_NOT_MODIFIED.getCourseException();
             }
         } else {
-            throw CourseException.MEMBER_COURSE_NOT_FOUND.getMemberTaskException();
+            throw CourseException.MEMBER_COURSE_NOT_FOUND.getCourseException();
         }
         return courseDTO;
     }
@@ -129,7 +132,9 @@ public class CourseServiceImpl implements CourseService {
             courseRepository.deleteById(courseId);
         }
         catch (Exception e){
-            throw CourseException.COURSE_NOT_DELETED.getMemberTaskException();
+            log.error("Error deleting course: ", e);
+            log.error("courseId: {}", courseId);
+            throw CourseException.COURSE_NOT_DELETED.getCourseException();
         }
     }
 
@@ -162,36 +167,48 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public List<MemberCourseDTO> getMemberCoursesByMemberId(Long memberId) {
         List<MemberCourse> memberCourseList = memberCourseRepository.getMemberCourse(memberId);
+        try {
+            if (memberCourseList == null && memberCourseList.isEmpty()) {
+                throw CourseException.MEMBER_COURSE_NOT_FOUND.getCourseException();
+            }
 
-        if (memberCourseList == null && memberCourseList.isEmpty()) {
-            throw CourseException.MEMBER_COURSE_NOT_FOUND.getMemberTaskException();
+            List<MemberCourseDTO> memberCourseDTOList = new ArrayList<>();
+
+            for (MemberCourse memberCourse : memberCourseList) {
+                memberCourseDTOList.add(new MemberCourseDTO(memberCourse));
+            }
+            log.info(memberCourseDTOList);
+            return memberCourseDTOList;
+        }catch (Exception e){
+            log.error("Error reading member course: ", e);
+            throw CourseException.COURSE_NOT_FOUND.getCourseException();
         }
 
-        List<MemberCourseDTO> memberCourseDTOList = new ArrayList<>();
-
-        for (MemberCourse memberCourse : memberCourseList) {
-            memberCourseDTOList.add(new MemberCourseDTO(memberCourse));
-        }
-        log.info(memberCourseDTOList);
-        return memberCourseDTOList;
     }
 
     @Override
     public List<CourseDTO> getCoursesByMemberId(Long memberId) {
-        List<MemberCourse> memberCourses = memberCourseRepository.findByMember_MemberId(memberId);
 
-        if (memberCourses == null || memberCourses.isEmpty()) {
-            throw CourseException.MEMBER_COURSE_NOT_FOUND.getMemberTaskException();
+        try {
+            log.info("memberId: {}", memberId);
+            List<MemberCourse> memberCourses = memberCourseRepository.findByMember_MemberId(memberId);
+            log.info("강의 개수 {}",memberCourses.size());
+
+            if (memberCourses == null || memberCourses.isEmpty()) {
+                throw CourseException.MEMBER_COURSE_NOT_FOUND.getCourseException();
+            }
+
+            List<CourseDTO> courseDTOList = new ArrayList<>();
+            for (MemberCourse memberCourse : memberCourses) {
+                courseDTOList.add(new CourseDTO(memberCourse.getCourse()));
+            }
+            return courseDTOList;
+        }catch (Exception e){
+            log.error("Error reading course By Member: ", e);
+            throw CourseException.COURSE_NOT_FOUND.getCourseException();
         }
 
-        List<CourseDTO> courseDTOList = new ArrayList<>();
-        for (MemberCourse memberCourse : memberCourses) {
-            courseDTOList.add(new CourseDTO(memberCourse.getCourse()));
-        }
-        return courseDTOList;
     }
-
-
 
     // 강사 닉네임 반환
     public String getInstructorNicknameByCourseId(Long courseId) {
