@@ -42,8 +42,11 @@ jobs:
           format: YYYY-MM-DDTHH-mm-ss
           utcOffset: "+09:00"
 
+      # 환경 변수에 첫 번째 파일명을 할당
       - name: Set artifact
-        run: echo "artifact=$(ls ./Learner/build/libs)" >> $GITHUB_ENV  # 경로 수정
+        run: |
+          artifact=$(ls ./Learner/build/libs | head -n 1)
+          echo "artifact=$artifact" >> $GITHUB_ENV
 
       - name: Beanstalk Deploy
         uses: einaregilsson/beanstalk-deploy@v20
