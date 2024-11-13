@@ -29,8 +29,11 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x ./Learner/gradlew  # 경로 수정
 
+      # Gradle 빌드를 실행할 디렉토리로 이동한 후 빌드 실행
       - name: Build with Gradle
-        run: ./Learner/gradlew clean build  # 경로 수정
+        run: |
+          cd ./Learner
+          ./gradlew clean build  # Learner 디렉토리에서 Gradle 빌드 실행
 
       - name: Get current time
         uses: josStorer/get-current-time@v2
